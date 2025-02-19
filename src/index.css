@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+
+:root {
+  /* COLORS */
+  --eco-color000: #f0f4f1;
+  --eco-color001: #1b4332;
+  --eco-color002: #48916f;
+  --eco-color003: #fff;
+  --eco-color004: #000;
+  --eco-color005: #8f8f94;
+  --eco-color006: #40704f;
+  --eco-color007: #dcdcdf;
+
+  /* BG COLORS */
+  --eco-bg-primary: var(--eco-color000);
+  --eco-bg-secondary: var(--eco-color001);
+  --eco-bg-tertiary: var(--eco-color003);
+  --eco-bg-buttons: var(--eco-color002);
+  --eco-bg-buttons-hover: var(--eco-color006);
+  --eco-bg-borders: var(--eco-color007);
+  /* COLORS LETTERS */
+  --eco-color-headings: var(--eco-color001);
+  --eco-color-letter-cards: var(--eco-color005);
+  --eco-color-letter-pages: var(--eco-color006);
+  --eco-color-links: var(--eco-color003);
+  --eco-color-links-hover: var(--eco-color002);
+
+  /* SPACING */
+  --eco-spacing-xs: 10px;
+  --eco-spacing-s: 20px;
+  --eco-spacing-m: 30px;
+  --eco-spacing-l: 40px;
+  --eco-spacing-xl: 50px;
+  --eco-spacing-xxl: 60px;
+  /* BORDERS */
+  --eco-br-primary: 8px;
+  --eco-br-secondary: 10px;
+  --eco-br-profile: 100%;
+}
+
+body {
+  background-color: var(--eco-bg-primary);
+  font-family: 'Roboto', serif;
+}
+
+a {
+  cursor: pointer;
+  font-size: 15px;
+}
+input,
+select,
+textarea {
+  width: 100%;
+  padding: var(--eco-spacing-xs);
+  border-radius: var(--eco-br-primary);
+  border: 2px solid var(--eco-bg-borders);
+}
+
+textarea {
+  min-height: 250px;
+  max-height: 250px;
+  min-width: 320px;
+  resize: none;
+}
+
+textarea:focus {
+  outline: none;
+  border: 2px solid var(--eco-bg-borders);
+}
+
+label {
+  margin-bottom: 20px;
+}
+input:-webkit-autofill {
+  background-color: #fff !important;
+  -webkit-box-shadow: 0 0 0 1000px #fff inset !important;
+  -webkit-text-fill-color: black !important;
+}
+
+input:-webkit-autofill:focus {
+  background-color: #fff !important;
+  -webkit-box-shadow: 0 0 0 1000px #fff inset !important;
+  -webkit-text-fill-color: black !important;
+}
+
+p {
+  font-size: 15px;
+}
+
+main {
+  margin-top: 100px;
+}

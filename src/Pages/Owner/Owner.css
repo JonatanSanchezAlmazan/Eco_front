@@ -1,0 +1,18 @@
+.owner__section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: var(--eco-spacing-l);
+  max-width: 1200px;
+  margin: auto;
+  padding: var(--eco-spacing-s);
+  min-height: 40svh;
+}
+
+.owner__heading {
+  margin-top: 130px;
+  text-align: center;
+  font-size: 30px;
+  color: var(--eco-color-headings);
+}

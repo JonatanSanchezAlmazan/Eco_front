@@ -1,0 +1,13 @@
+.btn {
+  background-color: var(--eco-bg-buttons);
+  border: none;
+  border-radius: var(--eco-br-primary);
+  height: 35px;
+  color: var(--eco-color-links);
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.btn:hover {
+  background-color: var(--eco-bg-buttons-hover);
+}

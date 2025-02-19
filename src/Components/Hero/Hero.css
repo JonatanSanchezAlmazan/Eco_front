@@ -1,0 +1,21 @@
+.hero {
+  margin-top: 100px;
+  width: 100%;
+  height: 800px;
+  background-image: linear-gradient(rgba(50, 50, 50, 0.8), rgba(50, 50, 50, 0.8)), url('/assets/eco_hero.webp');
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: var(--eco-spacing-s);
+  gap: var(--eco-spacing-m);
+}
+
+.hero > h1 {
+  color: var(--eco-color-links);
+  font-size: 50px;
+  text-align: center;
+}

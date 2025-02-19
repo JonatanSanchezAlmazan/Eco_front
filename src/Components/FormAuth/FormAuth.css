@@ -1,0 +1,72 @@
+.form__auth {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  min-width: 300px;
+  max-width: 500px;
+  width: 100%;
+  gap: var(--eco-spacing-m);
+  padding: var(--eco-spacing-m);
+  background-color: var(--eco-bg-tertiary);
+  border: 2px solid var(--eco-bg-borders);
+  border-radius: var(--eco-br-primary);
+  box-shadow: 2px 2px 10px 0px rgba(143, 143, 148, 1);
+}
+
+.form__auth > h2 {
+  color: var(--eco-color-headings);
+}
+
+.form__auth > p {
+  color: var(--eco-color-letter-pages);
+}
+
+.form__auth > p > span {
+  color: var(--eco-color-links-hover);
+}
+
+.form__auth--error {
+  color: rgb(211, 88, 88);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: var(--eco-spacing-xs);
+  position: relative;
+}
+
+.form__auth--links {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--eco-bg-borders);
+  height: 40px;
+  border-radius: var(--eco-br-primary);
+  padding: 0px 2px;
+}
+
+.form__auth--link {
+  color: var(--eco-color004);
+  width: 48%;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--eco-br-primary);
+}
+
+.form__auth--link.active {
+  background-color: var(--eco-bg-tertiary);
+}
+
+.view {
+  position: absolute;
+  right: 10px;
+  top: 40px;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+}

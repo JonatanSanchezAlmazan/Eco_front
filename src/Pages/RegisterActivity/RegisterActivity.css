@@ -1,0 +1,76 @@
+.register__activity {
+  display: flex;
+  flex-direction: column;
+  gap: var(--eco-spacing-l);
+  max-width: 1200px;
+  margin: auto;
+  padding: var(--eco-spacing-s);
+  justify-content: center;
+  align-items: center;
+}
+
+.register__activity > h2 {
+  text-align: center;
+  font-size: 30px;
+  color: var(--eco-color-headings);
+}
+
+.progress__bar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background-color: var(--eco-bg-borders);
+  height: 40px;
+  border-radius: var(--eco-br-primary);
+  justify-content: space-between;
+  padding: 0px 2px;
+  margin-bottom: var(--eco-spacing-s);
+}
+
+.no__active {
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 38px;
+  cursor: pointer;
+  color: black;
+}
+
+.active {
+  display: flex;
+  width: 100px;
+  justify-content: center;
+  align-items: center;
+  height: 38px;
+  background-color: white;
+  border-radius: var(--eco-br-primary);
+  font-weight: bold;
+  cursor: pointer;
+  color: black;
+}
+
+.form__container {
+  background-color: var(--eco-bg-tertiary);
+  min-width: 350px;
+  max-width: 800px;
+  width: 100%;
+  padding: var(--eco-spacing-xs);
+  border-radius: var(--eco-br-primary);
+  border: 2px solid var(--eco-bg-borders);
+  box-shadow: 2px 2px 10px 0px rgba(143, 143, 148, 1);
+}
+
+.step > div {
+  margin-top: var(--eco-spacing-s);
+}
+
+@media (min-width: 700px) {
+  .no__active {
+    width: 225px;
+  }
+
+  .active {
+    width: 225px;
+  }
+}

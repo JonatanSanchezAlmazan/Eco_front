@@ -1,0 +1,52 @@
+.profileCard {
+  background-color: var(--eco-bg-tertiary);
+  padding: var(--eco-spacing-s);
+  border-radius: var(--eco-br-primary);
+  border: 2px solid var(--eco-bg-borders);
+  box-shadow: 2px 2px 10px 0px rgba(143, 143, 148, 1);
+  display: flex;
+  flex-direction: column;
+  gap: var(--eco-spacing-s);
+  max-width: 500px;
+}
+
+.profileCard > h3 {
+  color: var(--eco-color-headings);
+}
+
+.profileCard > form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--eco-spacing-s);
+}
+.profileCard input {
+  margin-top: 3px;
+}
+
+.profileCard__image {
+  display: flex;
+  gap: var(--eco-spacing-s);
+  align-items: center;
+}
+
+.profileCard__image > img {
+  width: 50px;
+  height: 50px;
+  border: 2px solid var(--eco-bg-borders);
+  border-radius: 100%;
+  cursor: pointer;
+}
+
+.profileCard__buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--eco-spacing-xs);
+}
+
+.profileCard__buttons > button {
+  width: 120px;
+}
+
+.profileCard__buttons :last-child {
+  background-color: rgb(240, 85, 85);
+}
