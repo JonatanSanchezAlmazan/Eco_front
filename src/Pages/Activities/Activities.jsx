@@ -9,8 +9,7 @@ import Alert from '../../Components/Alert/Alert';
 
 const Activities = () => {
   const { state, dispatch } = useContext(ActivitiesContext);
-  console.log(state.error);
-  
+  console.log(state.activities);
 
   useEffect(() => {
     async function activities(params) {

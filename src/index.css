@@ -54,7 +54,6 @@ body {
 a {
   cursor: pointer;
   font-size: 15px;
-  
 }
 input,
 select,
@@ -66,8 +65,8 @@ textarea {
 }
 
 textarea {
-  min-height: 250px;
-  max-height: 250px;
+  min-height: 200px;
+  max-height: 200px;
   min-width: 320px;
   resize: none;
 }
@@ -92,11 +91,11 @@ input:-webkit-autofill:focus {
   -webkit-text-fill-color: black !important;
 }
 
-input:focus{
+input:focus {
   outline: none;
 }
 
-select:focus{
+select:focus {
   outline: none;
 }
 
@@ -109,20 +108,20 @@ main {
   margin-top: 100px;
 }
 
-.h2{
+.h2 {
   font-size: 30px;
   color: var(--eco-color-headings);
   text-align: center;
   margin: var(--eco-spacing-s);
 }
 
-.h3{
+.h3 {
   font-size: 22px;
   color: var(--eco-color-headings);
   margin-bottom: var(--eco-spacing-s);
 }
 
-.content{
+.content {
   width: 100%;
   display: flex;
   flex-direction: column;

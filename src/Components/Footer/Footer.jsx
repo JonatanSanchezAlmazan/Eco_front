@@ -6,7 +6,7 @@ const Footer = () => {
     <footer>
       <section className="footer__logo">
         <img src="/assets/logo.webp" alt="logo" />
-        <p>Descubre alojamientos y actividades sostenibles en toda Esapaña</p>
+        <p>Descubre alojamientos y actividades sostenibles en toda España</p>
       </section>
       <section className="footer__nav">
         <nav>

@@ -27,6 +27,13 @@
   margin-bottom: var(--eco-spacing-s);
 }
 
+.step {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .step__no--active {
   width: 100px;
   display: flex;
@@ -63,14 +70,26 @@
 
 .step > div {
   margin-top: var(--eco-spacing-s);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.step > div > label > span {
+  font-size: 12px;
+}
+
+.step > button {
+  margin-top: var(--eco-spacing-s);
+  width: 300px;
 }
 
 @media (min-width: 700px) {
-  .no__active {
+  .step__no--active {
     width: 225px;
   }
 
-  .active {
+  .step__active {
     width: 225px;
   }
 }
