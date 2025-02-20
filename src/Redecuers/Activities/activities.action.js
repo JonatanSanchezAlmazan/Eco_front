@@ -34,7 +34,6 @@ export async function createActiviy({ dispatch, data, navigate }) {
   try {
     const token = localStorage.getItem('token');
     dispatch({ type: 'LOADING' });
-
     const formData = new FormData();
     formData.append('name', data.name);
     formData.append('description', data.description);
