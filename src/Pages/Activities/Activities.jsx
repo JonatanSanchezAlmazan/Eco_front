@@ -5,9 +5,12 @@ import './Activities.css';
 import { ActivitiesContext } from '../../Providers/Activities/ActivitiesProvider';
 import { getActivities } from '../../Redecuers/Activities/activities.action';
 import Loading from '../../Components/Loading/Loading';
+import Alert from '../../Components/Alert/Alert';
 
 const Activities = () => {
   const { state, dispatch } = useContext(ActivitiesContext);
+  console.log(state.error);
+  
 
   useEffect(() => {
     async function activities(params) {

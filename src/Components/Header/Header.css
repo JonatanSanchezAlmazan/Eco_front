@@ -34,8 +34,9 @@
   top: 34px;
 }
 
-.header__explore > a {
+.header__explore > h4 {
   cursor: pointer;
+  color: var(--eco-color-links);
 }
 
 .header__explore > img {

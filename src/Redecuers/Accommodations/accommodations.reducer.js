@@ -10,7 +10,8 @@ export function accommodationReducer(state, action) {
     case 'LOADING':
       return {
         ...state,
-        isLoading: true
+        isLoading: true,
+        error:false
       };
     case 'ERROR':
       return {
@@ -22,20 +23,22 @@ export function accommodationReducer(state, action) {
       return {
         ...state,
         accommodations: action.payload,
-        isLoading: false
+        isLoading: false,
+        error:false
       };
     case 'GET_ACCOMMODATION':
       return {
         ...state,
         accommodation: action.payload,
-        isLoading: false
+        isLoading: false,
+        error:false
       };
     case 'GET_ACCOMMODATIONS_BY_AUTHOR':
       return {
         ...state,
         accommodations: action.payload,
         isLoading: false,
-        error: false
+        error: null
       };
     default:
       return { ...state };

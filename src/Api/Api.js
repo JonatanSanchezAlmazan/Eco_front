@@ -10,7 +10,7 @@ export async function API({ method = 'GET', isJson = false, body, endpoint, toke
       body: isJson ? JSON.stringify(body) : body
     };
 
-    console.log(options);
+   
 
     await new Promise((resolve) => setTimeout(resolve, 3000));
     const response = await fetch(`${import.meta.env.VITE_BASE_URL}/${endpoint}`, options);
@@ -22,7 +22,7 @@ export async function API({ method = 'GET', isJson = false, body, endpoint, toke
     }
 
     return data;
-  } catch (error) {
+  } catch (error) {    
     throw error;
   }
 }

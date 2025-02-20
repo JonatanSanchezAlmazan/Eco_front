@@ -1,1 +1,1 @@
-export const images = ['/assets/DONANA.webp', '/assets/parque-natural-sierra-de-grazalema.webp', '/assets/cabo_de_gata_nijar.webp'];
+export const images = ['/assets/slider.webp', '/assets/slider1.webp', '/assets/slider2.webp'];

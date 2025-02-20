@@ -20,7 +20,7 @@
   .filter {
     flex-direction: row;
     justify-content: space-between;
-    height: 150px;
+    height: 180px;
   }
 
   .filter > button {

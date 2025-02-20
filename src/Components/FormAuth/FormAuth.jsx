@@ -26,7 +26,7 @@ const FormAuth = ({ fields, onSubmit, className, btnText, isLogin }) => {
       {fields.map((field) => (
         <div key={field.name} className="field">
           <label htmlFor={field.name}>{field.label}</label>
-          <input type={field.type === 'password' ? (showPassword ? 'text' : 'password') : field.type} {...register(field.name, field.validation)} placeholder={field.placeholder || ''} />
+          <input id={field.name} type={field.type === 'password' ? (showPassword ? 'text' : 'password') : field.type} {...register(field.name, field.validation)} placeholder={field.placeholder || ''} />
           {field.type === 'password' && <img className="view" src={showPassword ? '/icons/ojo-abierto.webp' : '/icons/ojo.webp'} alt="Mostrar contraseña" onClick={() => setShowPassword(!showPassword)} />}
           {errors[field.name] && <p className="form__auth--error">{errors[field.name].message}</p>}
         </div>
@@ -34,7 +34,7 @@ const FormAuth = ({ fields, onSubmit, className, btnText, isLogin }) => {
       {!isLogin && (
         <div className="field">
           <label htmlFor="rol">Rol</label>
-          <select {...register('rol')}>
+          <select id='rol' {...register('rol')}>
             <option>Usuario</option>
             <option>Propietario</option>
           </select>

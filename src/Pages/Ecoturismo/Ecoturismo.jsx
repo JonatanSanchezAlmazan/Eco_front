@@ -5,11 +5,11 @@ import './Ecoturismo.css';
 const Ecoturismo = () => {
   return (
     <main>
-      <section className="ecoturismo">
-        <h2 className="ecoturismo__heading">Descubre el Ecoturismo en España</h2>
+      <section className=" content">
+        <h2 className="h2">Descubre el Ecoturismo en España</h2>
         <GallerySlider images={images} />
-        <h2 className="ecoturismo__heading--info">¿Qué es el Ecoturismo?</h2>
-        <section className="ecoturismo__info">
+        <h2 className="h2">¿Qué es el Ecoturismo?</h2>
+        <section className="content ecoturismo__info">
           <article>
             <p>El ecoturismo es una forma de turismo responsable que se centra en experiencias basadas en la naturaleza, fomenta la conciencia ambiental y apoya la conservación del entorno y el bienestar de las comunidades locales.</p>
             <br />

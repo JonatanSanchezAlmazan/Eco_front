@@ -54,6 +54,7 @@ body {
 a {
   cursor: pointer;
   font-size: 15px;
+  
 }
 input,
 select,
@@ -91,10 +92,44 @@ input:-webkit-autofill:focus {
   -webkit-text-fill-color: black !important;
 }
 
+input:focus{
+  outline: none;
+}
+
+select:focus{
+  outline: none;
+}
+
 p {
-  font-size: 15px;
+  font-size: 16px;
+  color: var(--eco-color-letter-pages);
 }
 
 main {
   margin-top: 100px;
+}
+
+.h2{
+  font-size: 30px;
+  color: var(--eco-color-headings);
+  text-align: center;
+  margin: var(--eco-spacing-s);
+}
+
+.h3{
+  font-size: 22px;
+  color: var(--eco-color-headings);
+  margin-bottom: var(--eco-spacing-s);
+}
+
+.content{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--eco-spacing-xl);
+  padding: var(--eco-spacing-s);
+  max-width: 1200px;
+  margin: auto;
 }

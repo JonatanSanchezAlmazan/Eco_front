@@ -11,7 +11,7 @@ export function usersReducer(state, action) {
       return {
         ...state,
         isLoading: true,
-        error: null
+        error: false
       };
     case 'ERROR':
       return {
@@ -24,32 +24,36 @@ export function usersReducer(state, action) {
         ...state,
         user: action.payload,
         isLoading: false,
-        isLogin: true
+        isLogin: true,
+        error:false
       };
     case 'LOGOUT':
       return {
         ...state,
         user: {},
         isLogin: false,
-        userById: null
+        error:false
       };
     case 'GET_USER':
       return {
         ...state,
         isLoading: false,
-        user: action.payload
+        user: action.payload,
+        error:false
       };
     case 'UPDATE_USER':
       return {
         ...state,
         isLoading: false,
-        user: action.payload
+        user: action.payload,
+        error:false
       };
     case 'DELETE_USER':
       return {
         ...state,
         isLoading: false,
-        user: {}
+        user: {},
+        error:false
       };
 
     default:

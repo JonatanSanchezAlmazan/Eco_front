@@ -4,7 +4,7 @@ import Explore from '../Explore/Explore';
 import Menu from '../Menu/Menu';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { UsersContext } from '../../Providers/Users/UsersProvider';
-import { getUser, logout } from '../../Redecuers/Users/users.action';
+import {  logout } from '../../Redecuers/Users/users.action';
 import { navigateToProfile } from '../../utils/navigateToProfile';
 
 const Header = () => {
@@ -14,9 +14,8 @@ const Header = () => {
   const location = useLocation();
   const isAuth = location.pathname === '/login' || location.pathname === '/register';
   const { state, dispatch } = useContext(UsersContext);
-
   const { isLogin, user } = state;
-  console.log(user);
+  
 
   return (
     <header className="header">
@@ -24,7 +23,7 @@ const Header = () => {
         <img onClick={() => navigate('/')} src="/assets/logo.webp" alt="logo" />
       </div>
       <div onClick={() => setIsModal(!isModal)} className="header__explore">
-        <a>Descubre </a>
+        <h4>Descubre</h4>
         {isModal ? <img src="/icons/flecha_abajo.webp" alt="flecha abajo" /> : <img src="/icons/flecha_arriba.webp" alt="flecha arriba" />}
         {isModal && <Explore />}
       </div>

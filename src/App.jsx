@@ -17,16 +17,20 @@ import Loading from './Components/Loading/Loading';
 import { UsersContext } from './Providers/Users/UsersProvider';
 import Alert from './Components/Alert/Alert';
 import RegisterActivity from './Pages/RegisterActivity/RegisterActivity';
+import { ActivitiesContext } from './Providers/Activities/ActivitiesProvider';
+import { AccommodationsContext } from './Providers/Accommodations/AccommodationsProvider';
 
 const App = () => {
   const { state } = useContext(UsersContext);
-  console.log(state.error);
-
+  const {state:activitiesState} = useContext(ActivitiesContext);
+  const {state:accommodationsState} = useContext(AccommodationsContext);
   const { isLoading } = state;
+  const errorMessage = state.error || activitiesState.error || accommodationsState.error
+
   return (
     <>
       {isLoading && <Loading />}
-      {state.error && <Alert error={state.error} />}
+      {errorMessage && <Alert error={errorMessage}/>}
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />

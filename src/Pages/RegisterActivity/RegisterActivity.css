@@ -27,7 +27,7 @@
   margin-bottom: var(--eco-spacing-s);
 }
 
-.no__active {
+.step__no--active {
   width: 100px;
   display: flex;
   justify-content: center;
@@ -37,7 +37,7 @@
   color: black;
 }
 
-.active {
+.step__active {
   display: flex;
   width: 100px;
   justify-content: center;

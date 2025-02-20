@@ -22,9 +22,12 @@ const Auth = () => {
     await register({ dispatch, data, navigate });
   };
   return (
-    <main className="auth">
+    <main>
+      <section className='content'>
       {isLogin ? <FormAuth key="login" isLogin={true} fields={fieldsLogin} btnText="Iniciar Sesión" onSubmit={handleSubmitLogin} className="form__auth" /> : <FormAuth key="register" fields={fieldsRegister} btnText="Registrarse" onSubmit={handleSubmitRegister} className="form__auth" />}
       {isLoading && <Loading />}
+      </section>
+     
     </main>
   );
 };

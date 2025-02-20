@@ -1,21 +1,25 @@
 import { API } from '../../Api/Api';
 
 export async function getAccommodations({ dispatch }) {
-  dispatch({ type: 'LOADING' });
+  try {
+    dispatch({ type: 'LOADING' });
   const data = await API({ endpoint: 'accommodations?author=&ubi=&capacity=' });
   console.log(data);
-
-  if (data) {
-    dispatch({ type: 'GET_ACCOMMODATIONS', payload: data.accommodations });
+  dispatch({ type: 'GET_ACCOMMODATIONS', payload: data.accommodations });
+  
+  } catch (error) {
+    dispatch({type:'ERROR', payload:error});
   }
 }
 export async function getAccommodation({ dispatch, id }) {
+ try {
   dispatch({ type: 'LOADING' });
   const data = await API({ endpoint: `accommodations/${id}` });
-
-  if (data) {
-    dispatch({ type: 'GET_ACCOMMODATION', payload: data.accommodation });
-  }
+  dispatch({ type: 'GET_ACCOMMODATION', payload: data.accommodation });
+  
+ } catch (error) {
+  dispatch({type:'ERROR', payload:error});
+ }
 }
 
 export async function getAccommodationsByAuthor({ dispatch, id }) {

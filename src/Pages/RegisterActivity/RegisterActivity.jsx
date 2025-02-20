@@ -14,7 +14,7 @@ const RegisterActivity = () => {
           <div className="progress__bar">
             {[1, 2, 3].map((s) => (
               <div key={s} onClick={() => goToStep(s)}>
-                <p className={s === step ? 'active' : 'no__active'}>Paso {s}</p>
+                <p className={s === step ? 'step__active' : 'step__no--active'}>Paso {s}</p>
               </div>
             ))}
           </div>
