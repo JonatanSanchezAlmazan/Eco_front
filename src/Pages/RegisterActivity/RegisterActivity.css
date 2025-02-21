@@ -84,6 +84,28 @@
   width: 300px;
 }
 
+.step>.image-preview-container{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: var(--eco-spacing-s);
+  align-items: center;
+  justify-content: center;
+}
+
+.step>.image-preview-container>div{
+  width: 100px;
+  height: 100px;
+}
+
+.image-preview-container>div>img{
+  width:100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--eco-br-primary);
+}
+
 @media (min-width: 700px) {
   .step__no--active {
     width: 225px;

@@ -7,6 +7,7 @@
   position: relative;
   max-width: 1200px;
   margin: auto;
+  
 }
 
 .activity > p,
@@ -65,7 +66,7 @@ li {
   border: 2px solid var(--eco-bg-borders);
   display: flex;
   flex-direction: column;
-  gap: var(--eco-spacing-m);
+  gap: var(--eco-spacing-xs);
   max-width: 700px;
 }
 
@@ -85,6 +86,6 @@ li {
   .activity__reservations {
     position: absolute;
     right: 20px;
-    bottom: 20px;
+    bottom: 0;
   }
 }

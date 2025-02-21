@@ -2,7 +2,8 @@ export const initialActivitiesState = {
   activities: [],
   activity: null,
   isLoading: false,
-  error: false
+  error: false,
+  message:false
 };
 
 export function activitiesReducer(state, action) {
@@ -19,6 +20,12 @@ export function activitiesReducer(state, action) {
         error: action.payload,
         isLoading: false
       };
+
+    case 'SHOW_MESSAGE':
+      return {
+        ...state,
+         message:action.payload
+      }
     case 'GET_ACTIVITIES':
       return {
         ...state,
@@ -40,6 +47,14 @@ export function activitiesReducer(state, action) {
         isLoading: false,
         error: false
       };
+
+      case 'CREATE_ACTIVITY':
+        return {
+          ...state,
+          isLoading:false,
+          error:false,
+          activities: [...state.activities, action.payload]
+        }
 
     default:
       return { ...state };

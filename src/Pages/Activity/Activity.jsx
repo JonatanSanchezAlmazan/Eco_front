@@ -22,7 +22,7 @@ const Activity = () => {
         <GallerySlider images={activity.images} name={activity.name} />
         <div className="activity__description">
           <h3>Descripción</h3>
-          <p>{activity.description}</p>
+          <p>{activity.description.charAt(0).toUpperCase() + activity.description.slice(1).toLowerCase()}</p>
         </div>
         <h3>Detalles de la actividad</h3>
         <div className="activity__detail">
@@ -49,20 +49,20 @@ const Activity = () => {
           <div>
             <img src="/icons/grupo.webp" alt="icono grupo" />
             <p>
-              Tamaño del grupo: <span>{`Máximo ${activity.capacity} personas`}</span>
+              Tamaño del grupo: <span>{`Máximo ${activity.capacity <= 1 ? `${activity.capacity} persona` : `${activity.capacity} personas`}`}</span>
             </p>
           </div>
         </div>
         <div className="activity__include">
           <h3>Qué incluye</h3>
           {activity.includes.map((item, index) => (
-            <li key={index}>- {item}</li>
+            <li key={index}>- {item.charAt(0).toUpperCase() + item.slice(1).toLowerCase()}</li>
           ))}
         </div>
         <div className="activity__requirements">
           <h3>Requisitos</h3>
           {activity.requirements.map((item, index) => (
-            <li key={index}>- {item}</li>
+            <li key={index}>- {item.charAt(0).toUpperCase() + item.slice(1).toLowerCase()}</li>
           ))}
         </div>
         <div className="activity__reservations">

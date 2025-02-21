@@ -24,13 +24,14 @@ const App = () => {
   const { state } = useContext(UsersContext);
   const {state:activitiesState} = useContext(ActivitiesContext);
   const {state:accommodationsState} = useContext(AccommodationsContext);
-  const { isLoading } = state;
-  const errorMessage = state.error || activitiesState.error || accommodationsState.error
+  const message = state.error || activitiesState.error || accommodationsState.error || activitiesState.message
+  const loading = state.isLoading || activitiesState.isLoading || accommodationsState.isLoading
+
 
   return (
     <>
-      {isLoading && <Loading />}
-      {errorMessage && <Alert error={errorMessage}/>}
+      {loading && <Loading />}
+      {message && <Alert message={message}/>}
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />

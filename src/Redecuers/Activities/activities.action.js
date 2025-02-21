@@ -32,26 +32,33 @@ export async function getActivitiesByAuthor({ dispatch, id }) {
 
 export async function createActiviy({ dispatch, data, navigate }) {
   try {
-    const token = localStorage.getItem('token');
     dispatch({ type: 'LOADING' });
+
+    const token = localStorage.getItem('token');
+    let parsedStarTime = ''
+    if(data.startTime.split(':')[0] >= 0 && data.startTime.split(':')[0] <= 11){
+      parsedStarTime = `${data.startTime} AM`
+      
+    }else{
+      parsedStarTime = `${data.startTime} PM`
+
+    }
     const formData = new FormData();
     formData.append('name', data.name);
     formData.append('description', data.description);
     formData.append('duration', `${data.duration} Horas`);
     formData.append('capacity', Number(data.capacity));
     formData.append('price', Number(data.price));
-    formData.append(
-      'includes',
-      data?.includes.split(',').map((item) => item.trim())
-    );
-    formData.append(
-      'requirements',
-      data?.requirements.split(',').map((item) => item.trim())
-    );
+    data.includes.split(',').map((item) => {
+      formData.append('includes', item)
+    })
+    data.requirements.split(',').map((item) => {
+      formData.append('requirements', item)
+    })
     formData.append('type', data.type);
     formData.append('ubi', data.ubi);
     formData.append('difficulty', data.difficulty);
-    formData.append('startTime', data.startTime);
+    formData.append('startTime', parsedStarTime);
     formData.append('schedule', data.schedule);
 
     if (data?.images && data.images.length > 0) {
@@ -61,13 +68,11 @@ export async function createActiviy({ dispatch, data, navigate }) {
     } else {
       throw new Error('No se han seleccionado imágenes');
     }
-
     const response = await API({ endpoint: 'activities/createActivity', method: 'POST', token, body: formData });
-
-    console.log(response);
+    dispatch({type:'CREATE_ACTIVITY', payload:response.activity})
+    dispatch({type:'SHOW_MESSAGE', payload: response.message})
+    
   } catch (error) {
-    console.log(error);
-
     dispatch({ type: 'ERROR', payload: error });
   }
 }
