@@ -1,0 +1,55 @@
+.step {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--eco-spacing-s);
+}
+
+.step__no--active {
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 38px;
+  cursor: pointer;
+  color: black;
+}
+
+.step__active {
+  display: flex;
+  width: 100px;
+  justify-content: center;
+  align-items: center;
+  height: 38px;
+  background-color: white;
+  border-radius: var(--eco-br-primary);
+  font-weight: bold;
+  cursor: pointer;
+  color: black;
+}
+
+.step > div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.step > div > label > span {
+  font-size: 12px;
+}
+
+.step > button {
+  margin-top: var(--eco-spacing-s);
+  width: 300px;
+}
+
+@media (min-width: 700px) {
+  .step__no--active {
+    width: 225px;
+  }
+
+  .step__active {
+    width: 225px;
+  }
+}

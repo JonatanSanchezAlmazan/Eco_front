@@ -1,5 +1,5 @@
 import { createContext, useReducer } from 'react';
-import { accommodationReducer, initialAccommodationsState } from '../../Redecuers/Accommodations/accommodations.reducer';
+import { accommodationReducer, initialAccommodationsState } from '../../Reducers/Accommodations/accommodations.reducer';
 
 export const AccommodationsContext = createContext();
 

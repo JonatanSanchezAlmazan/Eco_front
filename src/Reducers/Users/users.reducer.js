@@ -1,5 +1,6 @@
 export const initialUsersState = {
   user: JSON.parse(localStorage.getItem('user')) || {},
+  token: null,
   isLoading: false,
   isLogin: localStorage.getItem('user') !== null,
   error: false
@@ -22,38 +23,40 @@ export function usersReducer(state, action) {
     case 'LOGIN':
       return {
         ...state,
-        user: action.payload,
+        user: action.payload.user,
+        token: action.payload.token,
         isLoading: false,
         isLogin: true,
-        error:false
+        error: false
       };
     case 'LOGOUT':
       return {
         ...state,
         user: {},
         isLogin: false,
-        error:false
+        error: false,
+        token: null
       };
     case 'GET_USER':
       return {
         ...state,
         isLoading: false,
         user: action.payload,
-        error:false
+        error: false
       };
     case 'UPDATE_USER':
       return {
         ...state,
         isLoading: false,
         user: action.payload,
-        error:false
+        error: false
       };
     case 'DELETE_USER':
       return {
         ...state,
         isLoading: false,
         user: {},
-        error:false
+        error: false
       };
 
     default:

@@ -1,18 +1,25 @@
-import { useForm } from 'react-hook-form';
 import './FormAuth.css';
-import Button from '../Button/Button';
-import { NavLink } from 'react-router-dom';
-import { useState } from 'react';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import FormLogin from '../FormLogin/FormLogin';
+import { login } from '../../Reducers/Users/users.action';
+import { UsersContext } from '../../Providers/Users/UsersProvider';
+import FormRegister from '../FormRegister/FormRegister';
 
-const FormAuth = ({ fields, onSubmit, className, btnText, isLogin }) => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors }
-  } = useForm();
-  const [showPassword, setShowPassword] = useState(false);
+const FormAuth = ({ isLogin }) => {
+  const { dispatch } = useContext(UsersContext);
+  const navigate = useNavigate();
+
+  const handleSubmitLogin = async (body) => {
+    await login({ dispatch, body, navigate });
+  };
+
+  const handleSubmitRegister = async (data) => {
+    await register({ dispatch, data, navigate });
+  };
+
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className={className}>
+    <div className="form__auth">
       <h2>Bienvenido a Ecoturismo</h2>
       <p>Inicia sesión o registrate para continuar</p>
       <div className="form__auth--links">
@@ -23,28 +30,11 @@ const FormAuth = ({ fields, onSubmit, className, btnText, isLogin }) => {
           Registrarse
         </NavLink>
       </div>
-      {fields.map((field) => (
-        <div key={field.name} className="field">
-          <label htmlFor={field.name}>{field.label}</label>
-          <input id={field.name} type={field.type === 'password' ? (showPassword ? 'text' : 'password') : field.type} {...register(field.name, field.validation)} placeholder={field.placeholder || ''} />
-          {field.type === 'password' && <img className="view" src={showPassword ? '/icons/ojo-abierto.webp' : '/icons/ojo.webp'} alt="Mostrar contraseña" onClick={() => setShowPassword(!showPassword)} />}
-          {errors[field.name] && <p className="form__auth--error">{errors[field.name].message}</p>}
-        </div>
-      ))}
-      {!isLogin && (
-        <div className="field">
-          <label htmlFor="rol">Rol</label>
-          <select id='rol' {...register('rol')}>
-            <option>Usuario</option>
-            <option>Propietario</option>
-          </select>
-        </div>
-      )}
-      <Button text={btnText} />
+      {isLogin ? <FormLogin onSubmit={handleSubmitLogin} /> : <FormRegister onSubmit={handleSubmitRegister} />}
       <p>
         Al registrarte, aceptas nuestros <span>Términos y Condiciones</span> y nuestra <span>Política de Privacidad</span>
       </p>
-    </form>
+    </div>
   );
 };
 

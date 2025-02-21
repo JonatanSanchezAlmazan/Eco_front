@@ -4,10 +4,8 @@ export async function login({ dispatch, body, navigate }) {
   try {
     dispatch({ type: 'LOADING' });
     const data = await API({ method: 'POST', isJson: true, body, endpoint: 'users/login' });
-
-    dispatch({ type: 'LOGIN', payload: data.user });
+    dispatch({ type: 'LOGIN', payload: { user: data.user, token: data.token } });
     localStorage.setItem('user', JSON.stringify(data.user));
-    localStorage.setItem('token', data.token);
     navigate('/');
   } catch (error) {
     dispatch({ type: 'ERROR', payload: error });
@@ -16,7 +14,6 @@ export async function login({ dispatch, body, navigate }) {
 
 export function logout({ dispatch }) {
   localStorage.removeItem('user');
-  localStorage.removeItem('token');
   dispatch({ type: 'LOGOUT' });
 }
 
@@ -65,9 +62,8 @@ export async function getUser({ dispatch, id }) {
   }
 }
 
-export async function updateUser({ dispatch, id, data, navigate }) {
+export async function updateUser({ dispatch, id, token, data, navigate }) {
   try {
-    const token = localStorage.getItem('token');
     dispatch({ type: 'LOADING' });
 
     const formData = new FormData();
@@ -91,9 +87,8 @@ export async function updateUser({ dispatch, id, data, navigate }) {
   }
 }
 
-export async function deleteUser({ dispatch, id, navigate }) {
+export async function deleteUser({ dispatch, id, navigate, token }) {
   try {
-    const token = localStorage.getItem('token');
     dispatch({ type: 'LOADING' });
     const response = await API({ method: 'DELETE', endpoint: `users/deleteUser/${id}`, token });
 

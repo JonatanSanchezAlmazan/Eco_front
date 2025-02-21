@@ -1,0 +1,24 @@
+.image__noPreview {
+  border: 2px solid var(--eco-bg-borders);
+  width: 100%;
+  padding: var(--eco-spacing-xs);
+  border-radius: var(--eco-br-primary);
+  cursor: pointer;
+  display: flex;
+}
+
+.image__noPreview > p {
+  font-size: 14px;
+  color: black;
+}
+
+.image__preview > img {
+  width: 70px;
+  height: 70px;
+  border-radius: 100%;
+  border: 2px solid var(--eco-bg-borders);
+}
+
+.hidden-input {
+  display: none;
+}

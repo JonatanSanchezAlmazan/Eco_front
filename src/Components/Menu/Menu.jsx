@@ -2,11 +2,10 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import './Menu.css';
 import { useContext } from 'react';
 import { UsersContext } from '../../Providers/Users/UsersProvider';
-import { logout } from '../../Redecuers/Users/users.action';
-import { navigateToProfile } from '../../utils/navigateToProfile';
+import { logout } from '../../Reducers/Users/users.action';
 
 const Menu = () => {
-  const { state, dispatch } = useContext(UsersContext);
+  const { state } = useContext(UsersContext);
   const { isLogin, user } = state;
   const navigate = useNavigate();
 
@@ -18,7 +17,7 @@ const Menu = () => {
           <li>
             {isLogin && (
               <div className="image__user">
-                <img onClick={() => navigateToProfile(dispatch, user._id, navigate)} src={user.image} alt="image user" />
+                <img onClick={() => navigate('/profile')} src={user.image} alt="image user" />
               </div>
             )}
           </li>

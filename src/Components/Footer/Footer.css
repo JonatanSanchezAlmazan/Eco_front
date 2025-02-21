@@ -9,7 +9,7 @@ footer {
   position: relative;
 }
 
-.footer__logo p{
+.footer__logo p {
   text-align: start;
 }
 
@@ -22,8 +22,6 @@ footer h5 {
   width: 200px;
   margin-bottom: var(--eco-spacing-s);
 }
-
-
 
 .footer__nav > nav > ul {
   display: flex;
@@ -50,14 +48,14 @@ footer h5 {
   gap: var(--eco-spacing-s);
 }
 
-footer  p {
+footer p {
   font-size: 16px;
   color: var(--eco-color-links);
   text-align: center;
   font-size: 15px;
 }
 
-@media (min-width: 800px) {
+@media (min-width: 1000px) {
   footer {
     width: 100%;
     flex-direction: row;

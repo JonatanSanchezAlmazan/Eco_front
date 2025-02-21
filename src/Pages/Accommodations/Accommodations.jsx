@@ -1,7 +1,7 @@
 import { useContext, useEffect } from 'react';
 import './Accommodations.css';
 import { AccommodationsContext } from '../../Providers/Accommodations/AccommodationsProvider';
-import { getAccommodations } from '../../Redecuers/Accommodations/accommodations.action';
+import { getAccommodations } from '../../Reducers/Accommodations/accommodations.action';
 import ListingCards from '../../Components/ListingCards/ListingCards';
 import Loading from '../../Components/Loading/Loading';
 

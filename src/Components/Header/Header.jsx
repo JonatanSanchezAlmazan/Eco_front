@@ -1,11 +1,10 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import './Header.css';
 import Explore from '../Explore/Explore';
 import Menu from '../Menu/Menu';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { UsersContext } from '../../Providers/Users/UsersProvider';
-import {  logout } from '../../Redecuers/Users/users.action';
-import { navigateToProfile } from '../../utils/navigateToProfile';
+import { logout } from '../../Reducers/Users/users.action';
 
 const Header = () => {
   const [isModal, setIsModal] = useState(false);
@@ -15,7 +14,6 @@ const Header = () => {
   const isAuth = location.pathname === '/login' || location.pathname === '/register';
   const { state, dispatch } = useContext(UsersContext);
   const { isLogin, user } = state;
-  
 
   return (
     <header className="header">
@@ -44,7 +42,7 @@ const Header = () => {
           )}
           {isLogin && (
             <div className="image__user">
-              <img onClick={() => navigateToProfile(navigate)} src={user.image} alt="image user" />
+              <img onClick={() => navigate('/profile')} src={user.image} alt="image user" />
             </div>
           )}
         </div>

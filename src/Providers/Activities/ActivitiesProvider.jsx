@@ -1,5 +1,5 @@
 import { createContext, useReducer } from 'react';
-import { activitiesReducer, initialActivitiesState } from '../../Redecuers/Activities/activities.reducer';
+import { activitiesReducer, initialActivitiesState } from '../../Reducers/Activities/activities.reducer';
 
 export const ActivitiesContext = createContext();
 

@@ -3,11 +3,11 @@ import UserBookingCard from '../../Components/UserBookingCard/UserBookingCard';
 import UserProfileCard from '../../Components/UserProfileCard/UserProfileCard';
 import './Profile.css';
 import { UsersContext } from '../../Providers/Users/UsersProvider';
-import { getUser } from '../../Redecuers/Users/users.action';
+import { getUser } from '../../Reducers/Users/users.action';
 
 const Profile = () => {
   const { state, dispatch } = useContext(UsersContext);
-  const { user, isLoading } = state;
+  const { user, token } = state;
 
   useEffect(() => {
     async function user() {
@@ -21,7 +21,7 @@ const Profile = () => {
       <section className="profile">
         <h2>Mi Perfil</h2>
         <div>
-          <UserProfileCard user={user} dispatch={dispatch} isLoading={isLoading} />
+          <UserProfileCard user={user} dispatch={dispatch} token={token} />
           <UserBookingCard user={user} />
         </div>
       </section>

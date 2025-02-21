@@ -1,10 +1,10 @@
 import { useLocation, useNavigate } from 'react-router-dom';
 import Button from '../Button/Button';
 import './Card.css';
-import { getActivity } from '../../Redecuers/Activities/activities.action';
+import { getActivity } from '../../Reducers/Activities/activities.action';
 import { useContext } from 'react';
 import { ActivitiesContext } from '../../Providers/Activities/ActivitiesProvider';
-import { getAccommodation } from '../../Redecuers/Accommodations/accommodations.action';
+import { getAccommodation } from '../../Reducers/Accommodations/accommodations.action';
 import { AccommodationsContext } from '../../Providers/Accommodations/AccommodationsProvider';
 
 const Card = ({ src, title, btnText, id, description, ubi }) => {
@@ -35,8 +35,8 @@ const Card = ({ src, title, btnText, id, description, ubi }) => {
         <img src={src} alt={title} />
       </div>
       <h4>{title}</h4>
-      <p>{ubi}</p>
-      <p>{description}</p>
+      <p className="pCard">{ubi}</p>
+      <p className="pCard">{description}</p>
 
       <Button fnc={getCardDetail} text={btnText} />
     </div>

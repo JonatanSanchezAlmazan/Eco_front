@@ -4,9 +4,9 @@ import './Owner.css';
 import { UsersContext } from '../../Providers/Users/UsersProvider';
 import { ActivitiesContext } from '../../Providers/Activities/ActivitiesProvider';
 import { AccommodationsContext } from '../../Providers/Accommodations/AccommodationsProvider';
-import { getAccommodationsByAuthor } from '../../Redecuers/Accommodations/accommodations.action';
+import { getAccommodationsByAuthor } from '../../Reducers/Accommodations/accommodations.action';
 import Loading from '../../Components/Loading/Loading';
-import { getActivitiesByAuthor } from '../../Redecuers/Activities/activities.action';
+import { getActivitiesByAuthor } from '../../Reducers/Activities/activities.action';
 
 const Owner = () => {
   const { state: userState } = useContext(UsersContext);

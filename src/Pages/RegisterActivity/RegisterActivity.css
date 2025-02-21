@@ -27,36 +27,6 @@
   margin-bottom: var(--eco-spacing-s);
 }
 
-.step {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.step__no--active {
-  width: 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 38px;
-  cursor: pointer;
-  color: black;
-}
-
-.step__active {
-  display: flex;
-  width: 100px;
-  justify-content: center;
-  align-items: center;
-  height: 38px;
-  background-color: white;
-  border-radius: var(--eco-br-primary);
-  font-weight: bold;
-  cursor: pointer;
-  color: black;
-}
-
 .form__container {
   background-color: var(--eco-bg-tertiary);
   min-width: 350px;
@@ -66,52 +36,4 @@
   border-radius: var(--eco-br-primary);
   border: 2px solid var(--eco-bg-borders);
   box-shadow: 2px 2px 10px 0px rgba(143, 143, 148, 1);
-}
-
-.step > div {
-  margin-top: var(--eco-spacing-s);
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
-.step > div > label > span {
-  font-size: 12px;
-}
-
-.step > button {
-  margin-top: var(--eco-spacing-s);
-  width: 300px;
-}
-
-.step>.image-preview-container{
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: var(--eco-spacing-s);
-  align-items: center;
-  justify-content: center;
-}
-
-.step>.image-preview-container>div{
-  width: 100px;
-  height: 100px;
-}
-
-.image-preview-container>div>img{
-  width:100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: var(--eco-br-primary);
-}
-
-@media (min-width: 700px) {
-  .step__no--active {
-    width: 225px;
-  }
-
-  .step__active {
-    width: 225px;
-  }
 }
