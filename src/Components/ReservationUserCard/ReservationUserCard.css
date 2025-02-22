@@ -1,0 +1,30 @@
+.reservationCard > div {
+  display: flex;
+  align-items: center;
+  border: 2px solid var(--eco-bg-borders);
+  padding: 5px 0px;
+  gap: var(--eco-spacing-s);
+  justify-content: space-between;
+  padding: var(--eco-spacing-xs);
+  border-radius: var(--eco-br-primary);
+}
+
+.reservationCard > div > div {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: var(--eco-spacing-xs);
+}
+
+.reservationCard__button {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.reservationCard__button > button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}

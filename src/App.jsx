@@ -19,19 +19,19 @@ import Alert from './Components/Alert/Alert';
 import RegisterActivity from './Pages/RegisterActivity/RegisterActivity';
 import { ActivitiesContext } from './Providers/Activities/ActivitiesProvider';
 import { AccommodationsContext } from './Providers/Accommodations/AccommodationsProvider';
+import RegisterAccommodation from './Pages/RegisterAccommodation/RegisterAccommodation';
 
 const App = () => {
   const { state } = useContext(UsersContext);
-  const {state:activitiesState} = useContext(ActivitiesContext);
-  const {state:accommodationsState} = useContext(AccommodationsContext);
-  const message = state.error || activitiesState.error || accommodationsState.error || activitiesState.message
-  const loading = state.isLoading || activitiesState.isLoading || accommodationsState.isLoading
-
+  const { state: activitiesState } = useContext(ActivitiesContext);
+  const { state: accommodationsState } = useContext(AccommodationsContext);
+  const message = state.error || activitiesState.error || accommodationsState.error || activitiesState.message;
+  const loading = state.isLoading || activitiesState.isLoading || accommodationsState.isLoading;
 
   return (
     <>
       {loading && <Loading />}
-      {message && <Alert message={message}/>}
+      {message && <Alert message={message} />}
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -46,6 +46,7 @@ const App = () => {
         <Route path="/activity/:id" element={<Activity />} />
         <Route path="/accommodation/:id" element={<Accommodation />} />
         <Route path="/registerActivity" element={<RegisterActivity />} />
+        <Route path="/registerAccommodation" element={<RegisterAccommodation />} />
       </Routes>
       <Footer />
     </>

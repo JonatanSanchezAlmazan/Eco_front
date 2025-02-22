@@ -6,6 +6,11 @@
   gap: var(--eco-spacing-s);
 }
 
+.step > div > p {
+  margin-top: var(--eco-spacing-s);
+  color: rgb(211, 88, 88);
+}
+
 .step__no--active {
   width: 100px;
   display: flex;

@@ -4,30 +4,33 @@ import './Step.css';
 import { useForm } from 'react-hook-form';
 import { ActivitiesContext } from '../../Providers/Activities/ActivitiesProvider';
 import { createActiviy } from '../../Reducers/Activities/activities.action';
-import { useNavigate } from 'react-router-dom';
 import Step1 from './Step1/Step1';
 import Step2 from './Step2/Step2';
 import Step3 from './Step3/Step3';
+import { UsersContext } from '../../Providers/Users/UsersProvider';
 
 const RegisterActivity = () => {
   const [step, setStep] = useState(1);
   const { dispatch } = useContext(ActivitiesContext);
+  const { state } = useContext(UsersContext);
   const {
     register,
     handleSubmit,
     formState: { errors },
     trigger,
-    setValue
+    setValue,
+    getValues
   } = useForm();
-  const navigate = useNavigate();
+
+  console.log(state);
 
   async function submit(data) {
-    await createActiviy({ dispatch, data, navigate });
+    await createActiviy({ dispatch, data, token: state.token });
   }
 
   const goToStep = async (nextStep) => {
     const stepFields = {
-      1: ['name', 'description', 'type', 'startTime', 'schedule'],
+      1: ['name', 'description', 'type', 'price', 'schedule'],
       2: ['duration', 'price', 'ubi', 'capacity', 'images'],
       3: ['requirements', 'includes', 'difficulty']
     };
@@ -49,7 +52,7 @@ const RegisterActivity = () => {
           </div>
           <form onSubmit={handleSubmit(submit)}>
             {step === 1 && <Step1 register={register} errors={errors} />}
-            {step === 2 && <Step2 register={register} errors={errors} setValue={setValue} />}
+            {step === 2 && <Step2 register={register} errors={errors} setValue={setValue} getValues={getValues} />}
             {step === 3 && <Step3 register={register} errors={errors} />}
           </form>
         </div>

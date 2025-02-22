@@ -1,4 +1,4 @@
-.image__preview--container {
+.step > .image__preview--container {
   width: 100%;
   display: flex;
   flex-direction: row;

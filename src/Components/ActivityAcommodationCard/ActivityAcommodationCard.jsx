@@ -8,6 +8,9 @@ const ActivityAcommodationCard = ({ src, title, item, btnText }) => {
   function navigateRegisterActivity() {
     navigate('/registerActivity');
   }
+  function navigateRegisterAccomodation() {
+    navigate('/registerAccommodation');
+  }
   return (
     <div className="activityAcommodationCard">
       <div className="activityAcommodationCard__heading">

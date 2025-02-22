@@ -5,13 +5,16 @@ import './UserCardProfile.css';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import ConfirmModal from '../ConfirmModal/ConfirmModal';
+import useImagePreview from '../../Hooks/useImagePreview';
 
 const UserProfileCard = ({ user, dispatch, token }) => {
   const [showConfirm, setShowConfirm] = useState(false);
+  const { preview, handleImageChange } = useImagePreview();
+
   const {
     register,
     handleSubmit,
-    formState: { errors, isDirty }
+    formState: { errors }
   } = useForm();
   const navigate = useNavigate();
 
@@ -35,9 +38,12 @@ const UserProfileCard = ({ user, dispatch, token }) => {
             <input type="text" placeholder={user.name} {...register('name')} />
           </div>
         </div>
-        <div>
-          <label htmlFor="">Imagen</label>
-          <input type="file" {...register('file')} />
+        <div className="field">
+          <label htmlFor="image">Imagen de perfil</label>
+          <input id="image" type="file" accept="image/*" {...register('image')} onChange={handleImageChange} className="hidden-input" />
+          <label htmlFor="image" className={preview ? 'image__preview' : 'image__noPreview'}>
+            {preview ? <img src={preview} alt="Vista previa" /> : <p className="field">Sube tu imagen</p>}
+          </label>
         </div>
         <div>
           <label htmlFor="email">Email</label>
@@ -51,10 +57,10 @@ const UserProfileCard = ({ user, dispatch, token }) => {
               }
             })}
           />
-          {errors && <p className="form__auth--error">{errors.email?.message}</p>}
+          {errors && <p className="form__error">{errors.email?.message}</p>}
         </div>
         <div className="profileCard__buttons">
-          <Button isDirty={isDirty} text="Actualizar Perfil" />
+          <Button text="Actualizar Perfil" />
           <Button fnc={() => setShowConfirm(true)} type="button" text="Eliminar Cuenta" />
         </div>
       </form>

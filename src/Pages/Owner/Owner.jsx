@@ -13,7 +13,6 @@ const Owner = () => {
   const { user } = userState;
   const { state: activitiesState, dispatch: activitiesDispatch } = useContext(ActivitiesContext);
   const { state: accommodationState, dispatch: accommodationsDispatch } = useContext(AccommodationsContext);
-  const { isLoading } = accommodationState;
 
   useEffect(() => {
     async function getAccommodations() {
@@ -30,7 +29,6 @@ const Owner = () => {
 
   return (
     <main>
-      {isLoading && <Loading />}
       <h2 className="owner__heading">Panel de Control</h2>
       <section className="owner__section">
         <ActivityAcommodationCard src="/icons/casa-ecologica.webp" title="Actividades" item={activitiesState.activities} btnText="Crear Actividad" />

@@ -1,24 +1,19 @@
 import { useForm } from 'react-hook-form';
 import Button from '../Button/Button';
 import './FormRegister.css';
-import { useState } from 'react';
+
 import useTogglePassword from '../../Hooks/useTooglePassword';
+import useImagePreview from '../../Hooks/useImagePreview';
 
 const FormRegister = ({ onSubmit }) => {
-  const { showPassword, setShowPassword } = useTogglePassword();
-  const [preview, setPreview] = useState(null);
+  const { showPassword, tooglePassword } = useTogglePassword();
+  const { preview, handleImageChange } = useImagePreview();
   const {
     register,
     handleSubmit,
     formState: { errors }
   } = useForm();
 
-  const handleImageChange = (event) => {
-    const file = event.target.files[0];
-    if (file) {
-      setPreview(URL.createObjectURL(file));
-    }
-  };
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="form">
       <div className="field">
@@ -52,7 +47,7 @@ const FormRegister = ({ onSubmit }) => {
             }
           })}
         />
-        <img className="view" src={!showPassword ? '/icons/ojo.webp' : '/icons/ojo-abierto.webp'} alt="Mostrar contraseña" onClick={() => setShowPassword(!showPassword)} />
+        <img className="view" src={!showPassword ? '/icons/ojo.webp' : '/icons/ojo-abierto.webp'} alt="Mostrar contraseña" onClick={() => tooglePassword(!showPassword)} />
         {errors.password && <p className="form__error">{errors.password.message}</p>}
       </div>
       <div className="field">

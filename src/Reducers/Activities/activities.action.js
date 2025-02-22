@@ -30,18 +30,15 @@ export async function getActivitiesByAuthor({ dispatch, id }) {
   }
 }
 
-export async function createActiviy({ dispatch, data, navigate }) {
+export async function createActiviy({ dispatch, data, token }) {
   try {
     dispatch({ type: 'LOADING' });
 
-    const token = localStorage.getItem('token');
-    let parsedStarTime = ''
-    if(data.startTime.split(':')[0] >= 0 && data.startTime.split(':')[0] <= 11){
-      parsedStarTime = `${data.startTime} AM`
-      
-    }else{
-      parsedStarTime = `${data.startTime} PM`
-
+    let parsedStarTime = '';
+    if (data.startTime.split(':')[0] >= 0 && data.startTime.split(':')[0] <= 11) {
+      parsedStarTime = `${data.startTime} AM`;
+    } else {
+      parsedStarTime = `${data.startTime} PM`;
     }
     const formData = new FormData();
     formData.append('name', data.name);
@@ -50,11 +47,11 @@ export async function createActiviy({ dispatch, data, navigate }) {
     formData.append('capacity', Number(data.capacity));
     formData.append('price', Number(data.price));
     data.includes.split(',').map((item) => {
-      formData.append('includes', item)
-    })
+      formData.append('includes', item);
+    });
     data.requirements.split(',').map((item) => {
-      formData.append('requirements', item)
-    })
+      formData.append('requirements', item);
+    });
     formData.append('type', data.type);
     formData.append('ubi', data.ubi);
     formData.append('difficulty', data.difficulty);
@@ -69,9 +66,8 @@ export async function createActiviy({ dispatch, data, navigate }) {
       throw new Error('No se han seleccionado imágenes');
     }
     const response = await API({ endpoint: 'activities/createActivity', method: 'POST', token, body: formData });
-    dispatch({type:'CREATE_ACTIVITY', payload:response.activity})
-    dispatch({type:'SHOW_MESSAGE', payload: response.message})
-    
+    dispatch({ type: 'CREATE_ACTIVITY', payload: response.activity });
+    dispatch({ type: 'SHOW_MESSAGE', payload: response.message });
   } catch (error) {
     dispatch({ type: 'ERROR', payload: error });
   }

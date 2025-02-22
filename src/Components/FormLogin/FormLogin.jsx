@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import './FormLogin.css';
 import { useForm } from 'react-hook-form';
 import Button from '../Button/Button';
@@ -11,7 +10,7 @@ const FormLogin = ({ onSubmit }) => {
     formState: { errors }
   } = useForm();
 
-  const { showPassword, setShowPassword } = useTogglePassword();
+  const { showPassword, tooglePassword } = useTogglePassword();
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="form">
       <div className="field">
@@ -45,7 +44,7 @@ const FormLogin = ({ onSubmit }) => {
             }
           })}
         />
-        <img className="view" src={!showPassword ? '/icons/ojo.webp' : '/icons/ojo-abierto.webp'} alt="Mostrar contraseña" onClick={() => setShowPassword(!showPassword)} />
+        <img className="view" src={!showPassword ? '/icons/ojo.webp' : '/icons/ojo-abierto.webp'} alt="Mostrar contraseña" onClick={() => tooglePassword(!showPassword)} />
         {errors.password && <p className="form__error">{errors.password.message}</p>}
       </div>
       <Button text="Iniciar Sesión" />

@@ -11,7 +11,7 @@ const Step3 = ({ register, errors }) => {
         <label htmlFor="requirements">
           Requisitos <span>Separa cada palabra por una coma</span>
         </label>
-        <textarea id="requirements" placeholder="Ej: Buena condición física, Equipo específico..." {...register('requirements', { required: 'Los requisitos son requeridos' })}></textarea>
+        <textarea id="requirements" placeholder="Ej: Ropa cómoda, Botas de montaña, Agua, Protector solar..." {...register('requirements', { required: 'Los requisitos son requeridos' })}></textarea>
         {errors.requirements && <p className="form__error">{errors.requirements.message}</p>}
       </div>
       <div>

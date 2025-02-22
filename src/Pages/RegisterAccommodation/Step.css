@@ -1,0 +1,31 @@
+.step__services {
+  width: 100%;
+  position: relative;
+  display: flex;
+  gap: var(--eco-spacing-s);
+}
+
+.step__services > label {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.step__services > label > input {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  right: 0;
+}
+
+.step > .field__image {
+  width: 100%;
+  padding: var(--eco-spacing-xs);
+  border-radius: var(--eco-br-primary);
+  border: 2px solid var(--eco-bg-borders);
+  display: flex;
+}
+
+.field__image > label {
+  margin-bottom: 0;
+  cursor: pointer;
+}
