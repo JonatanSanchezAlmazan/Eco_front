@@ -30,7 +30,7 @@ export async function getAccommodationsByAuthor({ dispatch, id }) {
   }
 }
 
-export async function createAccommodation({ dispatch, data, token }) {  
+export async function createAccommodation({ dispatch, data }) {
   try {
     dispatch({ type: 'LOADING' });
     const formData = new FormData();
@@ -39,9 +39,9 @@ export async function createAccommodation({ dispatch, data, token }) {
     formData.append('type', data.type);
     formData.append('ubi', data.ubi);
     formData.append('price', data.price);
-    formData.append('capacity', data.capacity)
+    formData.append('capacity', data.capacity);
     data.services.map((service) => {
-      formData.append('services', service)
+      formData.append('services', service);
     });
     if (data?.images && data.images.length > 0) {
       data.images.forEach((file) => {
@@ -58,10 +58,9 @@ export async function createAccommodation({ dispatch, data, token }) {
     formData.append('contactDetails[email]', data.email);
     formData.append('contactDetails[phone]', data.phone);
 
-    const response = await API({method:'POST', body:formData, endpoint:'accommodations/createAccommodation', token});    
-    dispatch({type:'CREATE_ACCOMMODATION', payload: response.accommodation});
-    dispatch({type: 'SHOW_MESSAGE', payload: response.message})
-    
+    const response = await API({ method: 'POST', body: formData, endpoint: 'accommodations/createAccommodation' });
+    dispatch({ type: 'CREATE_ACCOMMODATION', payload: response.accommodation });
+    dispatch({ type: 'SHOW_MESSAGE', payload: response.message });
   } catch (error) {
     dispatch({ type: 'ERROR', payload: error });
   }

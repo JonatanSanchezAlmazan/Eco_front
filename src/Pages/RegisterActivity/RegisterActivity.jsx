@@ -7,12 +7,11 @@ import { createActiviy } from '../../Reducers/Activities/activities.action';
 import Step1 from './Step1/Step1';
 import Step2 from './Step2/Step2';
 import Step3 from './Step3/Step3';
-import { UsersContext } from '../../Providers/Users/UsersProvider';
+import useFormStep from '../../Hooks/useFormStep';
+import { stepFieldsActivities } from '../../utils/fieldsSteps';
 
 const RegisterActivity = () => {
-  const [step, setStep] = useState(1);
   const { dispatch } = useContext(ActivitiesContext);
-  const { state } = useContext(UsersContext);
   const {
     register,
     handleSubmit,
@@ -21,23 +20,12 @@ const RegisterActivity = () => {
     setValue,
     getValues
   } = useForm();
-
-  console.log(state);
+  const { step, goToStep } = useFormStep(trigger, stepFieldsActivities);
 
   async function submit(data) {
-    await createActiviy({ dispatch, data, token: state.token });
+    await createActiviy({ dispatch, data });
   }
 
-  const goToStep = async (nextStep) => {
-    const stepFields = {
-      1: ['name', 'description', 'type', 'price', 'schedule'],
-      2: ['duration', 'price', 'ubi', 'capacity', 'images'],
-      3: ['requirements', 'includes', 'difficulty']
-    };
-
-    const isValid = await trigger(stepFields[step]);
-    if (isValid) setStep(nextStep);
-  };
   return (
     <main>
       <section className="register__activity">

@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import ConfirmModal from '../ConfirmModal/ConfirmModal';
 import useImagePreview from '../../Hooks/useImagePreview';
 
-const UserProfileCard = ({ user, dispatch, token }) => {
+const UserProfileCard = ({ user, dispatch }) => {
   const [showConfirm, setShowConfirm] = useState(false);
   const { preview, handleImageChange } = useImagePreview();
 
@@ -19,11 +19,11 @@ const UserProfileCard = ({ user, dispatch, token }) => {
   const navigate = useNavigate();
 
   async function onSubmit(data) {
-    await updateUser({ dispatch, id: user._id, data, navigate, token });
+    await updateUser({ dispatch, id: user._id, data, navigate });
   }
 
   async function removeUser() {
-    await deleteUser({ dispatch, id: user._id, navigate, token });
+    await deleteUser({ dispatch, id: user._id, navigate });
   }
 
   return (

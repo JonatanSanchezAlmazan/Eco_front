@@ -1,18 +1,17 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import './RegisterAccommodation.css';
 import './Step.css';
 import { AccommodationsContext } from '../../Providers/Accommodations/AccommodationsProvider';
-import { UsersContext } from '../../Providers/Users/UsersProvider';
 import { useForm } from 'react-hook-form';
 import Step1 from './Step1/Step1';
 import Step2 from './Step2/Step2';
 import Step3 from './Step3/Step3';
 import { createAccommodation } from '../../Reducers/Accommodations/accommodations.action';
+import useFormStep from '../../Hooks/useFormStep';
+import { stepFieldsAccommodations } from '../../utils/fieldsSteps';
 
 const RegisterAccommodation = () => {
-  const [step, setStep] = useState(1);
   const { dispatch } = useContext(AccommodationsContext);
-  const { state } = useContext(UsersContext);
   const {
     register,
     handleSubmit,
@@ -21,22 +20,12 @@ const RegisterAccommodation = () => {
     setValue,
     getValues
   } = useForm();
-  
+  const { step, goToStep } = useFormStep(trigger, stepFieldsAccommodations);
 
   async function submit(data) {
-    await createAccommodation({ dispatch, data, token: state.token });
+    await createAccommodation({ dispatch, data });
   }
 
-  const goToStep = async (nextStep) => {
-    const stepFields = {
-      1: ['name', 'description', 'type', 'ubi', 'price'],
-      2: ['services'],
-      3: ['rules', 'paymanentType', 'email', 'phone']
-    };
-
-    const isValid = await trigger(stepFields[step]);
-    if (isValid) setStep(nextStep);
-  };
   return (
     <main>
       <section className="register__accommodation">

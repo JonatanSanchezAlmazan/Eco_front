@@ -30,7 +30,7 @@ export async function getActivitiesByAuthor({ dispatch, id }) {
   }
 }
 
-export async function createActiviy({ dispatch, data, token }) {
+export async function createActiviy({ dispatch, data }) {
   try {
     dispatch({ type: 'LOADING' });
 
@@ -65,8 +65,8 @@ export async function createActiviy({ dispatch, data, token }) {
     } else {
       throw new Error('No se han seleccionado imágenes');
     }
-    const response = await API({ endpoint: 'activities/createActivity', method: 'POST', token, body: formData });
- 
+    const response = await API({ endpoint: 'activities/createActivity', method: 'POST', body: formData });
+
     dispatch({ type: 'CREATE_ACTIVITY', payload: response.activity });
     dispatch({ type: 'SHOW_MESSAGE', payload: response.message });
   } catch (error) {
