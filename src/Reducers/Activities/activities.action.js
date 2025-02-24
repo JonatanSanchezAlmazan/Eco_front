@@ -66,6 +66,7 @@ export async function createActiviy({ dispatch, data, token }) {
       throw new Error('No se han seleccionado imágenes');
     }
     const response = await API({ endpoint: 'activities/createActivity', method: 'POST', token, body: formData });
+ 
     dispatch({ type: 'CREATE_ACTIVITY', payload: response.activity });
     dispatch({ type: 'SHOW_MESSAGE', payload: response.message });
   } catch (error) {

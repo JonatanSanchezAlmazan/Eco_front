@@ -1,6 +1,6 @@
 export const initialUsersState = {
   user: JSON.parse(localStorage.getItem('user')) || {},
-  token: null,
+  token: localStorage.getItem('token') || null,
   isLoading: false,
   isLogin: localStorage.getItem('user') !== null,
   error: false

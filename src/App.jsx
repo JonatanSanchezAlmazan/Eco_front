@@ -12,22 +12,15 @@ import Owner from './Pages/Owner/Owner';
 import Profile from './Pages/Profile/Profile';
 import Activity from './Pages/Activity/Activity';
 import Accommodation from './Pages/Accommodation/Accommodation';
-import { useContext } from 'react';
 import Loading from './Components/Loading/Loading';
-import { UsersContext } from './Providers/Users/UsersProvider';
 import Alert from './Components/Alert/Alert';
 import RegisterActivity from './Pages/RegisterActivity/RegisterActivity';
-import { ActivitiesContext } from './Providers/Activities/ActivitiesProvider';
-import { AccommodationsContext } from './Providers/Accommodations/AccommodationsProvider';
 import RegisterAccommodation from './Pages/RegisterAccommodation/RegisterAccommodation';
+import useAppState from './Hooks/useAppState';
 
 const App = () => {
-  const { state } = useContext(UsersContext);
-  const { state: activitiesState } = useContext(ActivitiesContext);
-  const { state: accommodationsState } = useContext(AccommodationsContext);
-  const message = state.error || activitiesState.error || accommodationsState.error || activitiesState.message;
-  const loading = state.isLoading || activitiesState.isLoading || accommodationsState.isLoading;
-
+  const {message, loading} = useAppState();
+ 
   return (
     <>
       {loading && <Loading />}

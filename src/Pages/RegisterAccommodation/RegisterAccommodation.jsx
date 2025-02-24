@@ -21,7 +21,7 @@ const RegisterAccommodation = () => {
     setValue,
     getValues
   } = useForm();
-  console.log(state.token);
+  
 
   async function submit(data) {
     await createAccommodation({ dispatch, data, token: state.token });

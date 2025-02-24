@@ -38,6 +38,11 @@ const Step1 = ({ register, errors }) => {
         <input type="number" name="price" id="price" min="1" {...register('price', { required: 'El precio es requerido' })}></input>
         {errors.price && <p className="form__error">{errors.price.message}</p>}
       </div>
+      <div>
+        <label htmlFor="capacity">Número máximo de personas</label>
+        <input type="number" name="capacity" id="capacity" min="1" {...register('capacity', { required: 'El número máximo de personas es requerido' })}></input>
+        {errors.capacity && <p className="form__error">{errors.capacity.message}</p>}
+      </div>
     </div>
   );
 };

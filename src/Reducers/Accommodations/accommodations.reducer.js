@@ -2,7 +2,8 @@ export const initialAccommodationsState = {
   accommodations: [],
   accommodation: null,
   isLoading: false,
-  error: false
+  error: false,
+  message:false
 };
 
 export function accommodationReducer(state, action) {
@@ -11,42 +12,53 @@ export function accommodationReducer(state, action) {
       return {
         ...state,
         isLoading: true,
-        error: false
+        error: false,
+        message:false
       };
     case 'ERROR':
       return {
         ...state,
         isLoading: false,
-        error: action.payload
+        error: action.payload,
+        message:false
       };
     case 'GET_ACCOMMODATIONS':
       return {
         ...state,
         accommodations: action.payload,
         isLoading: false,
-        error: false
+        error: false,
+        message:false
       };
     case 'GET_ACCOMMODATION':
       return {
         ...state,
         accommodation: action.payload,
         isLoading: false,
-        error: false
+        error: false,
+        message:false
       };
     case 'GET_ACCOMMODATIONS_BY_AUTHOR':
       return {
         ...state,
         accommodations: action.payload,
         isLoading: false,
-        error: null
+        error: null,
+        message:false
       };
-    case 'CREATE_ACTIVITY':
+    case 'CREATE_ACCOMMODATION':
       return {
         ...state,
-        accommodations: [...state.accommodations, action.payload],
         isLoading: false,
-        error: null
+        error: null,
+        message:false,
+        accommodations: [...state.accommodations, action.payload]
       };
+    case 'SHOW_MESSAGE':
+      return{
+        ...state,
+        message: action.payload
+      }
     default:
       return { ...state };
   }

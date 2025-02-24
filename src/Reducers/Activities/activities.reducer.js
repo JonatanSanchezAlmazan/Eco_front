@@ -12,13 +12,15 @@ export function activitiesReducer(state, action) {
       return {
         ...state,
         isLoading: true,
-        error: false
+        error: false,
+        message:false
       };
     case 'ERROR':
       return {
         ...state,
         error: action.payload,
-        isLoading: false
+        isLoading: false,
+        message:false
       };
 
     case 'SHOW_MESSAGE':
@@ -31,21 +33,24 @@ export function activitiesReducer(state, action) {
         ...state,
         activities: action.payload,
         isLoading: false,
-        error: false
+        error: false,
+        message:false
       };
     case 'GET_ACTIVITY':
       return {
         ...state,
         activity: action.payload,
         isLoading: false,
-        error: false
+        error: false,
+        message:false
       };
     case 'GET_ACTIVITIES_BY_AUTHOR':
       return {
         ...state,
         activities: action.payload,
         isLoading: false,
-        error: false
+        error: false,
+        message:false
       };
 
       case 'CREATE_ACTIVITY':
@@ -53,7 +58,8 @@ export function activitiesReducer(state, action) {
           ...state,
           isLoading:false,
           error:false,
-          activities: [...state.activities, action.payload]
+          activities: [...state.activities, action.payload],
+          message:false
         }
 
     default:

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+
 import opciones from '../../../utils/options';
 import ImagesPreview from '../../../Components/ImagesPreview/ImagesPreview';
 import useImageUpload from '../../../Hooks/useImageUpload';

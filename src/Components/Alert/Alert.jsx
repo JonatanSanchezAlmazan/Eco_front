@@ -23,6 +23,9 @@ function handleMessageAlert() {
     case 'Actividad creada correctamente':
       navigate('/owner');
       break;
+    case 'Alojamiento creado correctamente':
+      navigate('/owner');
+      break;
   
     default:
       console.log('Mensaje no manejado:', message);
