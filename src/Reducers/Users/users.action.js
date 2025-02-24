@@ -5,7 +5,6 @@ export async function login({ dispatch, body, navigate }) {
     dispatch({ type: 'LOADING' });
     const data = await API({ method: 'POST', isJson: true, body, endpoint: 'users/login' });
     localStorage.setItem('user', data.user);
-    localStorage.setItem('token', data.token);
     dispatch({ type: 'LOGIN', payload: { user: data.user, token: data.token } });
     localStorage.setItem('user', JSON.stringify(data.user));
     navigate('/');

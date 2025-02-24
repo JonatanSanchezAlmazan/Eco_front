@@ -1,13 +1,14 @@
-export async function API({ method = 'GET', isJson = false, body, endpoint, token }) {
+export async function API({ method = 'GET', isJson = false, body, endpoint }) {
   try {
     const headers = {
       ...(isJson && { 'Content-Type': 'application/json' }),
-      ...(token && { Authorization: `Bearer ${token}` })
+     
     };
     const options = {
       method: method,
       headers,
-      body: isJson ? JSON.stringify(body) : body
+      body: isJson ? JSON.stringify(body) : body,
+      credentials:'include'
     };
 
     await new Promise((resolve) => setTimeout(resolve, 3000));

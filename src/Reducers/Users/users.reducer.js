@@ -1,6 +1,5 @@
 export const initialUsersState = {
   user: JSON.parse(localStorage.getItem('user')) || {},
-  token: localStorage.getItem('token') || null,
   isLoading: false,
   isLogin: localStorage.getItem('user') !== null,
   error: false
@@ -24,7 +23,6 @@ export function usersReducer(state, action) {
       return {
         ...state,
         user: action.payload.user,
-        token: action.payload.token,
         isLoading: false,
         isLogin: true,
         error: false
@@ -35,7 +33,7 @@ export function usersReducer(state, action) {
         user: {},
         isLogin: false,
         error: false,
-        token: null
+        
       };
     case 'GET_USER':
       return {
