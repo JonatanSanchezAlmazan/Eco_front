@@ -11,7 +11,7 @@ export function accommodationReducer(state, action) {
       return {
         ...state,
         isLoading: true,
-        error:false
+        error: false
       };
     case 'ERROR':
       return {
@@ -24,19 +24,26 @@ export function accommodationReducer(state, action) {
         ...state,
         accommodations: action.payload,
         isLoading: false,
-        error:false
+        error: false
       };
     case 'GET_ACCOMMODATION':
       return {
         ...state,
         accommodation: action.payload,
         isLoading: false,
-        error:false
+        error: false
       };
     case 'GET_ACCOMMODATIONS_BY_AUTHOR':
       return {
         ...state,
         accommodations: action.payload,
+        isLoading: false,
+        error: null
+      };
+    case 'CREATE_ACTIVITY':
+      return {
+        ...state,
+        accommodations: [...state.accommodations, action.payload],
         isLoading: false,
         error: null
       };

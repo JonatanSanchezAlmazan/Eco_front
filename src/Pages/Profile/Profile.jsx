@@ -8,6 +8,7 @@ import { getUser } from '../../Reducers/Users/users.action';
 const Profile = () => {
   const { state, dispatch } = useContext(UsersContext);
   const { user, token } = state;
+  console.log(state);
 
   useEffect(() => {
     async function user() {
