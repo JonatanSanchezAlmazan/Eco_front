@@ -1,0 +1,25 @@
+.updateActivity {
+  height: 80svh;
+}
+
+.modalUpdate > form {
+  background-color: white;
+  padding: var(--eco-spacing-s);
+  width: 100%;
+  max-width: 800px;
+  border-radius: var(--eco-br-primary);
+  border: 2px solid var(--eco-bg-borders);
+  box-shadow: 2px 2px 10px 0px rgba(143, 143, 148, 1);
+  position: relative;
+}
+
+.modalUpdate > form > h4 {
+  margin-bottom: var(--eco-spacing-s);
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+}

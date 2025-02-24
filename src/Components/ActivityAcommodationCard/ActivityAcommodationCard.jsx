@@ -23,7 +23,7 @@ const ActivityAcommodationCard = ({ src, title, item, btnText }) => {
         <div className="activityAcommodationCard__content" key={index}>
           <p>{i.name}</p>
           <div>
-            <img src="/icons/lapiz.webp" alt="icono editar" />
+            <img onClick={() => (title === 'Actividades' ? navigate(`/updateActivity/${i._id}`) : '')} src="/icons/lapiz.webp" alt="icono editar" />
             <img src="/icons/borrar.webp" alt="icono borrar" />
           </div>
         </div>

@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import './RegisterActivity.css';
 import './Step.css';
 import { useForm } from 'react-hook-form';

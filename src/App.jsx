@@ -17,10 +17,11 @@ import Alert from './Components/Alert/Alert';
 import RegisterActivity from './Pages/RegisterActivity/RegisterActivity';
 import RegisterAccommodation from './Pages/RegisterAccommodation/RegisterAccommodation';
 import useAppState from './Hooks/useAppState';
+import UpdateActivity from './Pages/UpdateActivity/UpdateActivity';
 
 const App = () => {
-  const {message, loading} = useAppState();
- 
+  const { message, loading } = useAppState();
+
   return (
     <>
       {loading && <Loading />}
@@ -40,6 +41,7 @@ const App = () => {
         <Route path="/accommodation/:id" element={<Accommodation />} />
         <Route path="/registerActivity" element={<RegisterActivity />} />
         <Route path="/registerAccommodation" element={<RegisterAccommodation />} />
+        <Route path="/updateActivity/:id" element={<UpdateActivity />} />
       </Routes>
       <Footer />
     </>

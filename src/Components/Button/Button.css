@@ -6,6 +6,7 @@
   color: var(--eco-color-links);
   cursor: pointer;
   transition: all 0.5s;
+  font-size: 12px;
 }
 
 .btn:hover {
