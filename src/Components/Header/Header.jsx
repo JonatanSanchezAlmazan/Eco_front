@@ -21,7 +21,7 @@ const Header = () => {
         <img onClick={() => navigate('/')} src="/assets/logo.webp" alt="logo" />
       </div>
       <div onClick={() => setIsModal(!isModal)} className="header__explore">
-        <h4>Descubre</h4>
+        <h5>Descubre</h5>
         {isModal ? <img src="/icons/flecha_abajo.webp" alt="flecha abajo" /> : <img src="/icons/flecha_arriba.webp" alt="flecha arriba" />}
         {isModal && <Explore />}
       </div>

@@ -9,7 +9,7 @@ import useImagePreview from '../../Hooks/useImagePreview';
 
 const UserProfileCard = ({ user, dispatch }) => {
   const [showConfirm, setShowConfirm] = useState(false);
-  const { preview, handleImageChange } = useImagePreview();
+  const { preview, file, handleImageChange } = useImagePreview();
 
   const {
     register,
@@ -19,6 +19,7 @@ const UserProfileCard = ({ user, dispatch }) => {
   const navigate = useNavigate();
 
   async function onSubmit(data) {
+    data.image = file;
     await updateUser({ dispatch, id: user._id, data, navigate });
   }
 
@@ -40,7 +41,7 @@ const UserProfileCard = ({ user, dispatch }) => {
         </div>
         <div className="field">
           <label htmlFor="image">Imagen de perfil</label>
-          <input id="image" type="file" accept="image/*" {...register('image')} onChange={handleImageChange} className="hidden-input" />
+          <input id="image" type="file" accept="image/*" onChange={handleImageChange} className="hidden-input" />
           <label htmlFor="image" className={preview ? 'image__preview' : 'image__noPreview'}>
             {preview ? <img src={preview} alt="Vista previa" /> : <p className="field">Sube tu imagen</p>}
           </label>

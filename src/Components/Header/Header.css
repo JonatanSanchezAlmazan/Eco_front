@@ -34,9 +34,10 @@
   top: 34px;
 }
 
-.header__explore > h4 {
+.header__explore > h5 {
   cursor: pointer;
   color: var(--eco-color-links);
+  font-weight: normal;
 }
 
 .header__explore > img {

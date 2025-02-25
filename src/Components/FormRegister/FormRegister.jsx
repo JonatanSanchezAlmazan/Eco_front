@@ -1,21 +1,32 @@
 import { useForm } from 'react-hook-form';
 import Button from '../Button/Button';
 import './FormRegister.css';
-
 import useTogglePassword from '../../Hooks/useTooglePassword';
 import useImagePreview from '../../Hooks/useImagePreview';
+import { registerUser } from '../../Reducers/Users/users.action';
 
-const FormRegister = ({ onSubmit }) => {
+const FormRegister = ({ navigate, dispatch }) => {
   const { showPassword, tooglePassword } = useTogglePassword();
-  const { preview, handleImageChange } = useImagePreview();
+  const { preview, file, handleImageChange } = useImagePreview();
+
   const {
     register,
     handleSubmit,
     formState: { errors }
   } = useForm();
 
+  async function onSubmit(data) {
+    data.image = file;
+    await registerUser({ dispatch, data, navigate });
+  }
+
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="form">
+      <div className="field">
+        <label htmlFor="name">Nombre</label>
+        <input type="text" id="name" name="name" {...register('name', { required: 'El nombre es requerido' })} />
+        {errors.name && <p className="form__error">{errors.name.message}</p>}
+      </div>
       <div className="field">
         <label htmlFor="email">Email</label>
         <input
@@ -52,7 +63,7 @@ const FormRegister = ({ onSubmit }) => {
       </div>
       <div className="field">
         <label htmlFor="image">Imagen de perfil</label>
-        <input id="image" type="file" accept="image/*" {...register('image')} onChange={handleImageChange} className="hidden-input" />
+        <input id="image" type="file" accept="image/*" onChange={handleImageChange} className="hidden-input" />
         <label htmlFor="image" className={preview ? 'image__preview' : 'image__noPreview'}>
           {preview ? <img src={preview} alt="Vista previa" /> : <p className="field">Sube tu imagen</p>}
         </label>

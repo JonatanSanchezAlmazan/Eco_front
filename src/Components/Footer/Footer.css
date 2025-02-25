@@ -9,10 +9,6 @@ footer {
   position: relative;
 }
 
-.footer__logo p {
-  text-align: start;
-}
-
 footer h5 {
   color: var(--eco-color-links);
   font-size: 16px;
@@ -45,14 +41,21 @@ footer h5 {
 
 .footer__follow > div {
   display: flex;
-  gap: var(--eco-spacing-s);
+  align-items: center;
+  gap: var(--eco-spacing-xs);
+}
+
+.footer__follow > div > img {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
 }
 
 footer p {
   font-size: 16px;
   color: var(--eco-color-links);
   text-align: center;
-  font-size: 15px;
+  font-size: 12px;
 }
 
 @media (min-width: 1000px) {

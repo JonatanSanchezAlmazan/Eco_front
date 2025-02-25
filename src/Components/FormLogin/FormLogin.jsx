@@ -2,13 +2,18 @@ import './FormLogin.css';
 import { useForm } from 'react-hook-form';
 import Button from '../Button/Button';
 import useTogglePassword from '../../Hooks/useTooglePassword';
+import { login } from '../../Reducers/Users/users.action';
 
-const FormLogin = ({ onSubmit }) => {
+const FormLogin = ({ dispatch, navigate }) => {
   const {
     register,
     handleSubmit,
     formState: { errors }
   } = useForm();
+
+  async function onSubmit(body) {
+    await login({ dispatch, body, navigate });
+  }
 
   const { showPassword, tooglePassword } = useTogglePassword();
   return (

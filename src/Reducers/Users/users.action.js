@@ -20,7 +20,7 @@ export async function logout({ dispatch }) {
   dispatch({ type: 'SHOW_MESSAGE', payload: response.message });
 }
 
-export async function register({ dispatch, data, navigate }) {
+export async function registerUser({ dispatch, data, navigate }) {
   try {
     dispatch({ type: 'LOADING' });
 
@@ -33,8 +33,8 @@ export async function register({ dispatch, data, navigate }) {
     formData.append('name', data.name);
     formData.append('email', data.email);
     formData.append('password', data.password);
-    if (data.file && data.file[0]) {
-      formData.append('image', data?.file[0]);
+    if (data.image) {
+      formData.append('image', data.image);
     }
     formData.append('rol', data.rol);
 
@@ -76,8 +76,8 @@ export async function updateUser({ dispatch, id, data, navigate }) {
     if (data.email) {
       formData.append('email', data.email);
     }
-    if (data.file && data.file[0]) {
-      formData.append('image', data?.file[0]);
+    if (data.image) {
+      formData.append('image', data.image);
     }
 
     const response = await API({ method: 'PUT', body: formData, endpoint: `users/updateUser/${id}` });

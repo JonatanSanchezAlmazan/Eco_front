@@ -6,29 +6,12 @@ import { useContext } from 'react';
 import { ActivitiesContext } from '../../Providers/Activities/ActivitiesProvider';
 import { getAccommodation } from '../../Reducers/Accommodations/accommodations.action';
 import { AccommodationsContext } from '../../Providers/Accommodations/AccommodationsProvider';
+import { useCardDetail } from '../../Hooks/useCardDetail';
 
 const Card = ({ src, title, btnText, id, description, ubi }) => {
   const { dispatch: activitiesDispatch } = useContext(ActivitiesContext);
   const { dispatch: accommodationsDispatch } = useContext(AccommodationsContext);
-
-  const navigate = useNavigate();
-  const location = useLocation();
-  let path = '';
-  if (location.pathname === '/activities') {
-    path = 'activities';
-  } else {
-    path = 'accommodations';
-  }
-
-  async function getCardDetail() {
-    if (path === 'activities') {
-      await getActivity({ dispatch: activitiesDispatch, id });
-      navigate(`/activity/${id}`);
-    } else {
-      await getAccommodation({ dispatch: accommodationsDispatch, id });
-      navigate(`/accommodation/${id}`);
-    }
-  }
+  const { getCardDetail } = useCardDetail({ getActivity, getAccommodation, activitiesDispatch, accommodationsDispatch });
   return (
     <div className="card">
       <div>
@@ -38,7 +21,7 @@ const Card = ({ src, title, btnText, id, description, ubi }) => {
       <p className="pCard">{ubi}</p>
       <p className="pCard">{description}</p>
 
-      <Button fnc={getCardDetail} text={btnText} />
+      <Button fnc={() => getCardDetail(id)} text={btnText} />
     </div>
   );
 };

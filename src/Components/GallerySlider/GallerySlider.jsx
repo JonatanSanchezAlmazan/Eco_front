@@ -12,7 +12,7 @@ const GallerySlider = ({ images, name }) => {
   }
   return (
     <div className="slider">
-      <h4>{name || 'Ecoturismo en España'}</h4>
+      <h6>{name || 'Ecoturismo en España'}</h6>
       <div className="slider__container">
         <img src="/icons/proximo.png" className="pre" onClick={prevSlide} />
         <img src={images[currentIndex]} alt={name} loading="lazy" />

@@ -1,19 +1,19 @@
 .slider {
   width: 100%;
   position: relative;
-  max-width: 1200px;
+  max-width: 1000px;
   margin: auto;
 }
 
-.slider > h4 {
+.slider h6 {
   display: none;
   background-color: rgb(114, 112, 112);
-  min-width: 300px;
+  min-width: 200px;
   text-wrap: wrap;
   position: absolute;
   bottom: -10px;
   left: -10px;
-  color: var(--eco-bg-tertiary);
+  color: var(--eco-bg-tertiary) !important;
   padding: var(--eco-spacing-xs);
   border-radius: var(--eco-br-primary);
   box-shadow: 2px 2px 10px 0px rgba(143, 143, 148, 1);
@@ -37,8 +37,8 @@
   position: absolute;
   top: 50%;
   left: -10px;
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
   transform: rotate(180deg);
   cursor: pointer;
   background-color: rgb(114, 112, 112);
@@ -49,8 +49,8 @@
 .slider__container > .next {
   position: absolute;
   top: 50%;
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
   right: -10px;
   cursor: pointer;
   background-color: rgb(114, 112, 112);
@@ -58,7 +58,7 @@
   display: none;
 }
 
-.slider:hover h4 {
+.slider:hover h6 {
   display: block;
 }
 

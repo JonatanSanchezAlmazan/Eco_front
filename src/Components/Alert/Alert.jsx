@@ -7,7 +7,6 @@ const Alert = ({ message }) => {
   const [showAlert, setShowAlert] = useState(true);
   const navigate = useNavigate();
   console.log('renderizando alert');
-  
 
   function handleMessageAlert() {
     setShowAlert(false);
@@ -35,7 +34,7 @@ const Alert = ({ message }) => {
         navigate('/owner');
         break;
       case 'Actividad eliminada correctamente':
-        navigate('/owner');
+        navigate('/');
         break;
 
       default:

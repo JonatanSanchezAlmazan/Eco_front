@@ -10,14 +10,6 @@ const FormAuth = ({ isLogin }) => {
   const { dispatch } = useContext(UsersContext);
   const navigate = useNavigate();
 
-  const handleSubmitLogin = async (body) => {
-    await login({ dispatch, body, navigate });
-  };
-
-  const handleSubmitRegister = async (data) => {
-    await register({ dispatch, data, navigate });
-  };
-
   return (
     <div className="form__auth">
       <h2>Bienvenido a Ecoturismo</h2>
@@ -30,7 +22,7 @@ const FormAuth = ({ isLogin }) => {
           Registrarse
         </NavLink>
       </div>
-      {isLogin ? <FormLogin onSubmit={handleSubmitLogin} /> : <FormRegister onSubmit={handleSubmitRegister} />}
+      {isLogin ? <FormLogin navigate={navigate} dispatch={dispatch} /> : <FormRegister navigate={navigate} dispatch={dispatch} />}
       <p>
         Al registrarte, aceptas nuestros <span>Términos y Condiciones</span> y nuestra <span>Política de Privacidad</span>
       </p>
