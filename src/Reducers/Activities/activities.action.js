@@ -46,11 +46,11 @@ export async function createActiviy({ dispatch, data }) {
     formData.append('duration', `${data.duration} Horas`);
     formData.append('capacity', Number(data.capacity));
     formData.append('price', Number(data.price));
-    data.includes.split(',').map((item) => {
-      formData.append('includes', item);
+    data.includes.split(',').forEach((item) => {
+      formData.append('includes', item.trim());
     });
-    data.requirements.split(',').map((item) => {
-      formData.append('requirements', item);
+    data.requirements.split(',').forEach((item) => {
+      formData.append('requirements', item.trim());
     });
     formData.append('type', data.type);
     formData.append('ubi', data.ubi);
@@ -72,4 +72,60 @@ export async function createActiviy({ dispatch, data }) {
   } catch (error) {
     dispatch({ type: 'ERROR', payload: error });
   }
+}
+
+
+export async function updateActivity({dispatch, id, data}) {
+  try {
+    dispatch({ type: 'LOADING' });    
+    const formData = new FormData();
+    if (data.name) formData.append('name', data.name);
+    if (data.description) formData.append('description', data.description);
+    if (data.type) formData.append('type', data.type);
+    if (data.startTime) formData.append('startTime', data.startTime);
+    if (data.schedule) formData.append('schedule', data.schedule);
+    if (data.duration) formData.append('duration', data.duration);
+    if (data.price) formData.append('price', data.price);
+    if (data.ubi) formData.append('ubi', data.ubi);
+    if (data.capacity) formData.append('capacity', data.capacity);
+    if (data.difficulty) formData.append('difficulty', data.difficulty);
+
+    if (data.images?.length) {
+      data.images.forEach((file) => formData.append('images', file));
+    } else {
+      console.warn('No se han seleccionado imágenes');
+    }
+
+    data.requirements?.split(',').forEach((item) =>
+      formData.append('requirements', item.trim())
+    );
+
+    data.includes?.split(',').forEach((item) =>
+      formData.append('includes', item.trim())
+    );
+
+    const response = await API({method: 'PUT', endpoint:`activities/updateActivity/${id}`, body:formData});
+    console.log(response);
+    
+    dispatch({type: 'UPDATE_ACTIVITY', payload: response.activity});
+    dispatch({type:'SHOW_MESSAGE', payload:response.message});
+    
+
+  } catch (error) {
+    dispatch({ type: 'ERROR', payload: error });
+  }
+}
+
+export async function deleteActivity({dispatch, id}) {
+  try {
+    dispatch({ type: 'LOADING' });
+    const response = await API({method:'DELETE', endpoint:`activities/deleteActivity/${id}`});
+    dispatch({type: 'DELETE_ACTIVITY', payload:response.activity})
+    dispatch({type:'SHOW_MESSAGE', payload:response.message});
+    console.log(response);
+      
+  } catch (error) {
+    dispatch({ type: 'ERROR', payload: error });
+  }
+  
 }

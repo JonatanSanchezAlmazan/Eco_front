@@ -25,7 +25,7 @@ export function usersReducer(state, action) {
     case 'LOGIN':
       return {
         ...state,
-        user: action.payload.user,
+        user: action.payload,
         isLoading: false,
         isLogin: true,
         error: false,

@@ -26,7 +26,7 @@ export function activitiesReducer(state, action) {
     case 'SHOW_MESSAGE':
       return {
         ...state,
-         message:action.payload
+         message:action.payload,
       }
     case 'GET_ACTIVITIES':
       return {
@@ -59,6 +59,22 @@ export function activitiesReducer(state, action) {
           isLoading:false,
           error:false,
           activities: [...state.activities, action.payload],
+          message:false
+        }
+      case 'UPDATE_ACTIVITY':
+        return{
+          ...state,
+          isLoading:false,
+          error:false,
+          activities:[...state.activities, action.payload],
+          message:false
+        }
+      case 'DELETE_ACTIVITY':
+        return{
+          ...state,
+          isLoading:false,
+          error:false,
+          activities: state.activities.filter(activity => activity._id !== action.payload._id),
           message:false
         }
 

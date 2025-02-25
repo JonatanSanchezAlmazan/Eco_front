@@ -21,6 +21,8 @@ import UpdateActivity from './Pages/UpdateActivity/UpdateActivity';
 
 const App = () => {
   const { message, loading } = useAppState();
+  console.log(message);
+  
 
   return (
     <>

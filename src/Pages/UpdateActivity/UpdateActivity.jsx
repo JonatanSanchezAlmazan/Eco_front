@@ -1,4 +1,4 @@
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import './UpdateActivity.css';
 import { useContext } from 'react';
 import { ActivitiesContext } from '../../Providers/Activities/ActivitiesProvider';
@@ -9,22 +9,28 @@ import Step1 from './Step1/Step1';
 import Step2 from './Step2/Step2';
 import Step3 from './Step3/Step3';
 import ModalUpdate from '../../Components/ModalUpdate/ModalUpdate';
+import { updateActivity } from '../../Reducers/Activities/activities.action';
 
 const UpdateActivity = () => {
   const location = useLocation();
   const path = location.pathname;
   const id = path.split('/').at(-1);
-  const { state } = useContext(ActivitiesContext);
+  const { state, dispatch } = useContext(ActivitiesContext);
   const { activities } = state;
   const activity = activities.find((item) => item._id === id);
   const { register, handleSubmit, trigger, getValues, setValue } = useForm();
   const { step, goToStep } = useFormStep(trigger, stepFieldsActivities);
+  const navigate = useNavigate();
+
+  async function submit(data) {
+    await updateActivity({dispatch, id, data});
+  }
 
   return (
     <div className="updateActivity">
       <ModalUpdate>
-        <form>
-          <p className="close">X</p>
+        <form onSubmit={handleSubmit(submit)}>
+          <img onClick={()=> navigate('/owner')} className='close' src="/icons/close.webp" alt="icon close" />
           <h4>{`Editar Actividad ${activity.name}`}</h4>
           <div className="progress__bar">
             {[1, 2, 3].map((s) => (

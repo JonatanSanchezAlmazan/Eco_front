@@ -6,6 +6,8 @@ import './Alert.css';
 const Alert = ({ message }) => {
   const [showAlert, setShowAlert] = useState(true);
   const navigate = useNavigate();
+  console.log('renderizando alert');
+  
 
   function handleMessageAlert() {
     setShowAlert(false);
@@ -27,6 +29,12 @@ const Alert = ({ message }) => {
         navigate('/owner');
         break;
       case 'Alojamiento creado correctamente':
+        navigate('/owner');
+        break;
+      case 'Actividad actualizada correctamente':
+        navigate('/owner');
+        break;
+      case 'Actividad eliminada correctamente':
         navigate('/owner');
         break;
 

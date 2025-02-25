@@ -6,6 +6,8 @@ import { getActivities } from '../../Reducers/Activities/activities.action';
 
 const Activities = () => {
   const { state, dispatch } = useContext(ActivitiesContext);
+  console.log(state.activities);
+  
 
   useEffect(() => {
     async function activities() {

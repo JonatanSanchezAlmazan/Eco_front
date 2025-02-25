@@ -4,7 +4,7 @@
   position: fixed;
   background: rgba(250, 250, 250, 0.628);
   backdrop-filter: blur(5px);
-  z-index: 9999;
+  z-index: 2;
   top: 0;
   left: 0;
 }
