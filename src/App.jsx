@@ -20,9 +20,13 @@ import useAppState from './Hooks/useAppState';
 import UpdateActivity from './Pages/UpdateActivity/UpdateActivity';
 import UpdateAccommodation from './Pages/UpdateAccommodation/UpdateAccommodation';
 
+import useAuth from './Hooks/useAuth';
+
 const App = () => {
   const { message, loading } = useAppState();
- 
+  const { isAuthenticated } = useAuth();
+  console.log(isAuthenticated);
+
   return (
     <>
       {loading && <Loading />}

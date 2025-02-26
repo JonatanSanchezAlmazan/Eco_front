@@ -7,30 +7,28 @@ import { UsersContext } from '../../Providers/Users/UsersProvider';
 import { logout } from '../../Reducers/Users/users.action';
 
 const Header = () => {
-  const [isModal, setIsModal] = useState(false);
+  const [isExplore, setIsExplore] = useState(false);
   const [isMenu, setIsMenu] = useState(false);
   const navigate = useNavigate();
-  const location = useLocation();
-  const isAuth = location.pathname === '/login' || location.pathname === '/register';
   const { state, dispatch } = useContext(UsersContext);
-  const { isLogin, user } = state;
+  const { isLogin, user, isAuth } = state;
 
   return (
     <header className="header">
       <div className="header__logo">
         <img onClick={() => navigate('/')} src="/assets/logo.webp" alt="logo" />
       </div>
-      <div onClick={() => setIsModal(!isModal)} className="header__explore">
+      <div onClick={() => setIsExplore(!isExplore)} className="header__explore">
         <h5>Descubre</h5>
-        {isModal ? <img src="/icons/flecha_abajo.webp" alt="flecha abajo" /> : <img src="/icons/flecha_arriba.webp" alt="flecha arriba" />}
-        {isModal && <Explore />}
+        {isExplore ? <img src="/icons/flecha_abajo.webp" alt="flecha abajo" /> : <img src="/icons/flecha_arriba.webp" alt="flecha arriba" />}
+        {isExplore && <Explore />}
       </div>
-      {!isAuth && (
+      {isAuth && (
         <div className="header__buttons">
           <NavLink onClick={() => isLogin && logout({ dispatch })} className="new__session" to="/login">
             {!isLogin ? 'Iniciar Sesión' : 'Cerrar Sesión'}
           </NavLink>
-          {!isLogin && (
+          {isLogin && (
             <NavLink className="register" to="/register">
               Registrarse
             </NavLink>

@@ -8,6 +8,7 @@ const Menu = () => {
   const { state } = useContext(UsersContext);
   const { isLogin, user } = state;
   const navigate = useNavigate();
+  //!Todo cerrar sesion
 
   return (
     <div className="menu">

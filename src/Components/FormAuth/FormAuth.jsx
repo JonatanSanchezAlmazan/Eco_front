@@ -1,13 +1,18 @@
 import './FormAuth.css';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import FormLogin from '../FormLogin/FormLogin';
 import { login } from '../../Reducers/Users/users.action';
 import { UsersContext } from '../../Providers/Users/UsersProvider';
 import FormRegister from '../FormRegister/FormRegister';
+import Alert from '../Alert/Alert';
 
-const FormAuth = ({ isLogin }) => {
-  const { dispatch } = useContext(UsersContext);
+const FormAuth = () => {
+  const { dispatch, state } = useContext(UsersContext);
+  const { isAuth } = state;
+  const location = useLocation();
+  const isLogin = location.pathname === '/login';
+
   const navigate = useNavigate();
 
   return (
