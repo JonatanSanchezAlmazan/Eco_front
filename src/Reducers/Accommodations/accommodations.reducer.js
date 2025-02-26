@@ -54,6 +54,22 @@ export function accommodationReducer(state, action) {
         message:false,
         accommodations: [...state.accommodations, action.payload]
       };
+    case 'UPDATE_ACCOMMODATION':
+      return {
+        ...state,
+        isLoading:false,
+        error:null,
+        message:false,
+        accommodations: [...state.accommodations, action.payload]
+      }
+    case 'DELETE_ACCOMMODATION':
+      return{
+        ...state,
+        error:null,
+        isLoading:false,
+        message:false,
+        accommodations: state.accommodations.filter(accommodation => accommodation._id !== action.payload._id)
+      }
     case 'SHOW_MESSAGE':
       return{
         ...state,

@@ -1,10 +1,9 @@
 import Button from '../Button/Button';
 import './ConfirmModal.css';
 
-const ConfirmModal = ({ remove, setShow, isLoading, text }) => {
+const ConfirmModal = ({ remove, setShow,  text }) => {
   return (
     <div className="content__confirmModal">
-      {!isLoading && (
         <div className="confirmModal">
           <p>{text}</p>
           <div className="confirmModal__buttons">
@@ -12,7 +11,6 @@ const ConfirmModal = ({ remove, setShow, isLoading, text }) => {
             <Button fnc={() => setShow(false)} text="Cancelar" />
           </div>
         </div>
-      )}
     </div>
   );
 };

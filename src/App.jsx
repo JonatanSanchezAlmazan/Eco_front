@@ -18,12 +18,11 @@ import RegisterActivity from './Pages/RegisterActivity/RegisterActivity';
 import RegisterAccommodation from './Pages/RegisterAccommodation/RegisterAccommodation';
 import useAppState from './Hooks/useAppState';
 import UpdateActivity from './Pages/UpdateActivity/UpdateActivity';
+import UpdateAccommodation from './Pages/UpdateAccommodation/UpdateAccommodation';
 
 const App = () => {
   const { message, loading } = useAppState();
-  console.log(message);
-  
-
+ 
   return (
     <>
       {loading && <Loading />}
@@ -44,6 +43,7 @@ const App = () => {
         <Route path="/registerActivity" element={<RegisterActivity />} />
         <Route path="/registerAccommodation" element={<RegisterAccommodation />} />
         <Route path="/updateActivity/:id" element={<UpdateActivity />} />
+        <Route path="/updateAccommodation/:id" element={<UpdateAccommodation />} />
       </Routes>
       <Footer />
     </>
