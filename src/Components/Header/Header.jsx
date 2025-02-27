@@ -12,6 +12,8 @@ const Header = () => {
   const navigate = useNavigate();
   const { state, dispatch } = useContext(UsersContext);
   const { isLogin, user, isAuth } = state;
+  console.log(state);
+  
 
   return (
     <header className="header">
@@ -23,12 +25,12 @@ const Header = () => {
         {isExplore ? <img src="/icons/flecha_abajo.webp" alt="flecha abajo" /> : <img src="/icons/flecha_arriba.webp" alt="flecha arriba" />}
         {isExplore && <Explore />}
       </div>
-      {isAuth && (
+      {isLogin && (
         <div className="header__buttons">
           <NavLink onClick={() => isLogin && logout({ dispatch })} className="new__session" to="/login">
             {!isLogin ? 'Iniciar Sesión' : 'Cerrar Sesión'}
           </NavLink>
-          {isLogin && (
+          {!isLogin && (
             <NavLink className="register" to="/register">
               Registrarse
             </NavLink>

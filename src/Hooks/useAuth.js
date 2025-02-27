@@ -9,7 +9,9 @@ function useAuth() {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const response = await API({ method: 'GET', endpoint: 'users/verifyToken' }); // Verifica el token en el backend
+        const response = await API({ method: 'GET', endpoint: 'users/verifyToken' });
+        console.log(response);
+        
         if (response.authenticated) {
           setIsAuthenticated(true);
         } else {
@@ -21,7 +23,7 @@ function useAuth() {
     };
 
     checkAuth();
-  }, [navigate, location]);
+  }, [navigate]);
 
   return isAuthenticated;
 }

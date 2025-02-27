@@ -26,9 +26,12 @@ const App = () => {
   const { message, loading } = useAppState();
   const { isAuthenticated } = useAuth();
   console.log(isAuthenticated);
+  
+  
 
   return (
     <>
+      {isAuthenticated && <Alert message='Hola'/>}
       {loading && <Loading />}
       {message && <Alert message={message} />}
       <Header />
