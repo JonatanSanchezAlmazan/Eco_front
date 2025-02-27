@@ -10,6 +10,7 @@ import useImagePreview from '../../Hooks/useImagePreview';
 const UserProfileCard = ({ user, dispatch }) => {
   const [showConfirm, setShowConfirm] = useState(false);
   const { preview, file, handleImageChange } = useImagePreview();
+  console.log(user);
 
   const {
     register,

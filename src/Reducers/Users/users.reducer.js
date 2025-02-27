@@ -2,8 +2,7 @@ export const initialUsersState = {
   user: JSON.parse(localStorage.getItem('user')) || {},
   isLoading: false,
   isLogin: localStorage.getItem('user') !== null,
-  isAuth: false,
-  error: false,
+  error: null,
   message: false
 };
 
@@ -29,25 +28,23 @@ export function usersReducer(state, action) {
         user: action.payload,
         isLoading: false,
         isLogin: true,
-        error: false,
-        message: false,
-        isAuth: true
+        error: null,
+        message: false
       };
     case 'LOGOUT':
       return {
         ...state,
         user: {},
         isLogin: false,
-        error: false,
-        isLoading: false,
-        isAuth: false
+        error: null,
+        isLoading: false
       };
     case 'GET_USER':
       return {
         ...state,
         isLoading: false,
         user: action.payload,
-        error: false,
+        error: null,
         message: false
       };
     case 'UPDATE_USER':
@@ -55,7 +52,7 @@ export function usersReducer(state, action) {
         ...state,
         isLoading: false,
         user: action.payload,
-        error: false,
+        error: null,
         message: false
       };
     case 'DELETE_USER':
@@ -63,7 +60,7 @@ export function usersReducer(state, action) {
         ...state,
         isLoading: false,
         user: {},
-        error: false
+        error: null
       };
 
     case 'SHOW_MESSAGE':

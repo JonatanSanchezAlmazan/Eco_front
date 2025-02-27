@@ -11,9 +11,7 @@ const Header = () => {
   const [isMenu, setIsMenu] = useState(false);
   const navigate = useNavigate();
   const { state, dispatch } = useContext(UsersContext);
-  const { isLogin, user, isAuth } = state;
-  console.log(state);
-  
+  const { isLogin, user } = state;
 
   return (
     <header className="header">
@@ -25,28 +23,27 @@ const Header = () => {
         {isExplore ? <img src="/icons/flecha_abajo.webp" alt="flecha abajo" /> : <img src="/icons/flecha_arriba.webp" alt="flecha arriba" />}
         {isExplore && <Explore />}
       </div>
-      {isLogin && (
-        <div className="header__buttons">
-          <NavLink onClick={() => isLogin && logout({ dispatch })} className="new__session" to="/login">
-            {!isLogin ? 'Iniciar Sesión' : 'Cerrar Sesión'}
+
+      <div className="header__buttons">
+        <NavLink onClick={() => isLogin && logout({ dispatch })} className="new__session" to="/login">
+          {!isLogin ? 'Iniciar Sesión' : 'Cerrar Sesión'}
+        </NavLink>
+        {!isLogin && (
+          <NavLink className="register" to="/register">
+            Registrarse
           </NavLink>
-          {!isLogin && (
-            <NavLink className="register" to="/register">
-              Registrarse
-            </NavLink>
-          )}
-          {user.isOwner === true && (
-            <NavLink className="owner" to="/owner">
-              Gestión
-            </NavLink>
-          )}
-          {isLogin && (
-            <div className="image__user">
-              <img onClick={() => navigate('/profile')} src={user.image} alt="image user" />
-            </div>
-          )}
-        </div>
-      )}
+        )}
+        {user.isOwner === true && (
+          <NavLink className="owner" to="/owner">
+            Gestión
+          </NavLink>
+        )}
+        {isLogin && (
+          <div className="image__user">
+            <img onClick={() => navigate('/profile')} src={user.image} alt="image user" />
+          </div>
+        )}
+      </div>
 
       <div onClick={() => setIsMenu(!isMenu)} className="header__menu">
         {isMenu ? <img src="/icons/cerrar.webp" alt="icon close menu" /> : <img src="/icons/menu.webp" alt="icon menu" />}

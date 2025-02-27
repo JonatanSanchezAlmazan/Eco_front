@@ -5,7 +5,6 @@ export function useCardDetail({ getActivity, getAccommodation, activitiesDispatc
   const location = useLocation();
 
   const path = location.pathname === '/activities' ? 'activities' : 'accommodations';
-  console.log(path);
 
   const getCardDetail = async (id) => {
     if (path === 'activities') {

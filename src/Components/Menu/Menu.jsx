@@ -5,7 +5,7 @@ import { UsersContext } from '../../Providers/Users/UsersProvider';
 import { logout } from '../../Reducers/Users/users.action';
 
 const Menu = () => {
-  const { state } = useContext(UsersContext);
+  const { state, dispatch } = useContext(UsersContext);
   const { isLogin, user } = state;
   const navigate = useNavigate();
   //!Todo cerrar sesion
@@ -42,7 +42,7 @@ const Menu = () => {
             <NavLink to="/about">Sobre Nosotros</NavLink>
           </li>
           <li>
-            <NavLink onClick={() => isLogin && logout()} className="new__session" to="/login">
+            <NavLink onClick={() => isLogin && logout({ dispatch })} className="new__session" to="/login">
               {!isLogin ? 'Iniciar Sesión' : 'Cerrar Sesión'}
             </NavLink>
           </li>

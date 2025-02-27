@@ -1,18 +1,19 @@
-import { useContext, useEffect } from 'react';
+import { useEffect } from 'react';
 import UserBookingCard from '../../Components/UserBookingCard/UserBookingCard';
 import UserProfileCard from '../../Components/UserProfileCard/UserProfileCard';
 import './Profile.css';
-import { UsersContext } from '../../Providers/Users/UsersProvider';
 import { getUser } from '../../Reducers/Users/users.action';
+import Alert from '../../Components/Alert/Alert';
+
+import useUserState from '../../Hooks/useUserState';
 
 const Profile = () => {
-  const { state, dispatch } = useContext(UsersContext);
-  const { user, token } = state;
-  console.log(state);
+  const { message, error, user, dispatch } = useUserState();
+  console.log(user._id);
 
   useEffect(() => {
     async function user() {
-      getUser({ dispatch, id: state.user._id });
+      getUser({ dispatch, id: user._id });
     }
     user();
   }, []);
@@ -20,9 +21,10 @@ const Profile = () => {
   return (
     <main>
       <section className="profile">
+        {message && <Alert message={message} />}
         <h2>Mi Perfil</h2>
         <div>
-          <UserProfileCard user={user} dispatch={dispatch} token={token} />
+          <UserProfileCard user={user} dispatch={dispatch} />
           <UserBookingCard user={user} />
         </div>
       </section>

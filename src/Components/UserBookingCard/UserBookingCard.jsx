@@ -10,8 +10,7 @@ const UserBookingCard = ({ user }) => {
       <p>Gestiona tus reservas actuales</p>
       {reservations?.map((item) => {
         const isActivity = item.typeReservation === 'Actividad';
-
-        return <ReservationUserCard isActivity={isActivity} item={item} />;
+        return <ReservationUserCard key={item._id} isActivity={isActivity} item={item} />;
       })}
       {reservations?.length <= 0 && <p>No tienes reservas todavía</p>}
     </div>

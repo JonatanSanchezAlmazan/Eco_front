@@ -16,24 +16,17 @@ import Loading from './Components/Loading/Loading';
 import Alert from './Components/Alert/Alert';
 import RegisterActivity from './Pages/RegisterActivity/RegisterActivity';
 import RegisterAccommodation from './Pages/RegisterAccommodation/RegisterAccommodation';
-import useAppState from './Hooks/useAppState';
+
 import UpdateActivity from './Pages/UpdateActivity/UpdateActivity';
 import UpdateAccommodation from './Pages/UpdateAccommodation/UpdateAccommodation';
-
-import useAuth from './Hooks/useAuth';
+import useLoadingState from './Hooks/useLoadingState';
 
 const App = () => {
-  const { message, loading } = useAppState();
-  const { isAuthenticated } = useAuth();
-  console.log(isAuthenticated);
-  
-  
+  const { loading } = useLoadingState();
 
   return (
     <>
-      {isAuthenticated && <Alert message='Hola'/>}
       {loading && <Loading />}
-      {message && <Alert message={message} />}
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />

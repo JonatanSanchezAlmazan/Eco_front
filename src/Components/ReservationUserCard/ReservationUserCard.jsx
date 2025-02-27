@@ -1,10 +1,8 @@
 import './ReservationUserCard.css';
 
 const ReservationUserCard = ({ isActivity, item }) => {
-  console.log(item);
-
   return (
-    <div key={item._id} className="reservationCard">
+    <div className="reservationCard">
       <div>
         <div>
           <h4>{isActivity ? item.activityId?.name : item.accommodationId?.name}</h4>

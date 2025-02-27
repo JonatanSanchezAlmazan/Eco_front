@@ -54,12 +54,12 @@ export async function registerUser({ dispatch, data, navigate }) {
 
 export async function getUser({ dispatch, id }) {
   try {
+    console.log(id);
+
     dispatch({ type: 'LOADING' });
     const data = await API({ endpoint: `users/${id}`, isJson: true });
 
-    if (data) {
-      dispatch({ type: 'GET_USER', payload: data.user });
-    }
+    dispatch({ type: 'GET_USER', payload: data.user });
   } catch (error) {
     dispatch({ type: 'ERROR', payload: error });
   }
