@@ -1,13 +1,10 @@
-import { useContext, useEffect } from 'react';
+import { useEffect } from 'react';
 import ListingCards from '../../Components/ListingCards/ListingCards';
-import './Activities.css';
-import { ActivitiesContext } from '../../Providers/Activities/ActivitiesProvider';
 import { getActivities } from '../../Reducers/Activities/activities.action';
+import useActivitiesState from '../../Hooks/useActivitiesState';
 
 const Activities = () => {
-  const { state, dispatch } = useContext(ActivitiesContext);
-  console.log(state.activities);
-  
+  const { state, dispatch } = useActivitiesState();
 
   useEffect(() => {
     async function activities() {
@@ -18,7 +15,9 @@ const Activities = () => {
 
   return (
     <main>
-      <ListingCards cards={state.activities} title="Actividades Ecológicas" />
+      <section className="content">
+        <ListingCards cards={state.activities} title="Actividades Ecológicas" />
+      </section>
     </main>
   );
 };

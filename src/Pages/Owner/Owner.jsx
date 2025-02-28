@@ -1,30 +1,11 @@
-import { useContext, useEffect } from 'react';
 import ActivityAcommodationCard from '../../Components/ActivityAcommodationCard/ActivityAcommodationCard';
 import './Owner.css';
-import { UsersContext } from '../../Providers/Users/UsersProvider';
-import { ActivitiesContext } from '../../Providers/Activities/ActivitiesProvider';
-import { AccommodationsContext } from '../../Providers/Accommodations/AccommodationsProvider';
-import { getAccommodationsByAuthor } from '../../Reducers/Accommodations/accommodations.action';
-import { getActivitiesByAuthor } from '../../Reducers/Activities/activities.action';
+import useActivitiesState from '../../Hooks/useActivitiesState';
+import useAccommodationState from '../../Hooks/useAccommodationsState';
 
 const Owner = () => {
-  const { state: userState } = useContext(UsersContext);
-  const { user } = userState;
-  const { state: activitiesState, dispatch: activitiesDispatch } = useContext(ActivitiesContext);
-  const { state: accommodationState, dispatch: accommodationsDispatch } = useContext(AccommodationsContext);
-
-  useEffect(() => {
-    async function getAccommodations() {
-      getAccommodationsByAuthor({ dispatch: accommodationsDispatch, id: user._id });
-    }
-
-    async function getActivities() {
-      getActivitiesByAuthor({ dispatch: activitiesDispatch, id: user._id });
-    }
-
-    getAccommodations();
-    getActivities();
-  }, []);
+  const { state: activitiesState } = useActivitiesState();
+  const { state: accommodationState } = useAccommodationState();
 
   return (
     <main>

@@ -8,8 +8,7 @@ import FormRegister from '../FormRegister/FormRegister';
 import Alert from '../Alert/Alert';
 
 const FormAuth = () => {
-  const { dispatch, state } = useContext(UsersContext);
-  const { isAuth } = state;
+  const { dispatch } = useContext(UsersContext);
   const location = useLocation();
   const isLogin = location.pathname === '/login';
 

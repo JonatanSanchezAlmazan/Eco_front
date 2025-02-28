@@ -1,20 +1,20 @@
 import { useNavigate } from 'react-router-dom';
 import Button from '../Button/Button';
 import './ActivityAcommodationCard.css';
-import { useContext, useState } from 'react';
-import { ActivitiesContext } from '../../Providers/Activities/ActivitiesProvider';
 import { deleteActivity } from '../../Reducers/Activities/activities.action';
 import ConfirmModal from '../ConfirmModal/ConfirmModal';
-import { AccommodationsContext } from '../../Providers/Accommodations/AccommodationsProvider';
-import { deleteAccommodation, getAccommodation } from '../../Reducers/Accommodations/accommodations.action';
-
+import { deleteAccommodation } from '../../Reducers/Accommodations/accommodations.action';
+import useActivitiesState from '../../Hooks/useActivitiesState';
+import useAccommodationState from '../../Hooks/useAccommodationsState';
+import { useState } from 'react';
+import Alert from '../Alert/Alert';
 
 const ActivityAcommodationCard = ({ src, title, item, btnText }) => {
+  const { state: activityState, dispatch: activityDispatch } = useActivitiesState();
+  const { state: accommodationState, dispatch: accommodationDispatch } = useAccommodationState();
+
   const [showConfirm, setShowConfirm] = useState(false);
   const navigate = useNavigate();
-  const { dispatch: activitiesDispatch } = useContext(ActivitiesContext);
-  const { dispatch: accommodationsDispatch } = useContext(AccommodationsContext);
-  
 
   function navigateRegisterActivity() {
     navigate('/registerActivity');
@@ -23,9 +23,9 @@ const ActivityAcommodationCard = ({ src, title, item, btnText }) => {
     navigate('/registerAccommodation');
   }
 
-
   return (
     <div className="activityAcommodationCard">
+      {activityState.error && <Alert message={activityState.error} />}
       <div className="activityAcommodationCard__heading">
         <img src={src} alt="icono" />
         <h3>{title}</h3>
@@ -39,7 +39,7 @@ const ActivityAcommodationCard = ({ src, title, item, btnText }) => {
             <img onClick={() => (title === 'Actividades' ? navigate(`/updateActivity/${i._id}`) : navigate(`/updateAccommodation/${i._id}`))} src="/icons/lapiz.webp" alt="icono editar" />
             <img onClick={() => setShowConfirm(!showConfirm)} src="/icons/borrar.webp" alt="icono borrar" />
           </div>
-          {showConfirm && <ConfirmModal text={`Seguro que quieres eliminar ${i.name}`} setShow={setShowConfirm} remove={() => (title === 'Actividades' ? deleteActivity({ dispatch: activitiesDispatch, id: i._id }) : deleteAccommodation({dispatch:accommodationsDispatch, id:i._id}))} />}
+          {showConfirm && <ConfirmModal text={`Seguro que quieres eliminar ${i.name}`} setShow={setShowConfirm} remove={() => (title === 'Actividades' ? deleteActivity({ dispatch: activityDispatch, id: i._id }) : deleteAccommodation({ dispatch: accommodationDispatch, id: i._id }))} />}
         </div>
       ))}
       <Button fnc={() => (title === 'Actividades' ? navigateRegisterActivity() : navigateRegisterAccomodation())} text={btnText} />

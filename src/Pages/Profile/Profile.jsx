@@ -8,24 +8,24 @@ import Alert from '../../Components/Alert/Alert';
 import useUserState from '../../Hooks/useUserState';
 
 const Profile = () => {
-  const { message, error, user, dispatch } = useUserState();
-  console.log(user._id);
+  const { state, dispatch } = useUserState();
 
   useEffect(() => {
     async function user() {
-      getUser({ dispatch, id: user._id });
+      getUser({ dispatch, id: state.user._id });
     }
     user();
   }, []);
 
   return (
     <main>
+      {state.message && <Alert message={state.message} />}
+      {state.error && <Alert message={state.error} />}
       <section className="profile">
-        {message && <Alert message={message} />}
         <h2>Mi Perfil</h2>
         <div>
-          <UserProfileCard user={user} dispatch={dispatch} />
-          <UserBookingCard user={user} />
+          <UserProfileCard user={state.user} dispatch={dispatch} />
+          <UserBookingCard user={state.user} />
         </div>
       </section>
     </main>

@@ -33,36 +33,3 @@
   align-items: center;
   gap: var(--eco-spacing-xs);
 }
-
-.accommodation__reservations {
-  margin-top: var(--eco-spacing-m);
-  background-color: var(--eco-bg-tertiary);
-  padding: var(--eco-spacing-s);
-  border-radius: var(--eco-br-primary);
-  box-shadow: 2px 2px 10px 0px rgba(143, 143, 148, 1);
-  border: 2px solid var(--eco-bg-borders);
-  display: flex;
-  flex-direction: column;
-  gap: var(--eco-spacing-m);
-  max-width: 700px;
-}
-
-.accommodation__reservations--price {
-  font-weight: bold;
-  font-size: 20px;
-  color: var(--eco-color-headings);
-}
-
-.accommodation__reservations--price > span {
-  font-weight: normal;
-  font-size: 16px;
-  color: var(--eco-color-headings);
-}
-
-@media (min-width: 700px) {
-  .accommodation__reservations {
-    position: absolute;
-    right: 20px;
-    bottom: 20px;
-  }
-}

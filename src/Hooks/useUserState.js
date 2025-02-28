@@ -1,11 +1,10 @@
 import { useContext } from 'react';
 import { UsersContext } from '../Providers/Users/UsersProvider';
 
-function useUserState(params) {
+function useUserState() {
   const { state, dispatch } = useContext(UsersContext);
-  const { message, error, user } = state;
 
-  return { message, error, user, dispatch };
+  return { state, dispatch };
 }
 
 export default useUserState;

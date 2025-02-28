@@ -65,7 +65,7 @@ export async function getUser({ dispatch, id }) {
   }
 }
 
-export async function updateUser({ dispatch, id, data, navigate }) {
+export async function updateUser({ dispatch, id, data }) {
   try {
     dispatch({ type: 'LOADING' });
 
@@ -81,7 +81,6 @@ export async function updateUser({ dispatch, id, data, navigate }) {
     }
 
     const response = await API({ method: 'PUT', body: formData, endpoint: `users/updateUser/${id}` });
-
     dispatch({ type: 'UPDATE_USER', payload: response.user });
     localStorage.setItem('user', JSON.stringify(response.user));
     dispatch({ type: 'SHOW_MESSAGE', payload: response.message });
@@ -90,14 +89,13 @@ export async function updateUser({ dispatch, id, data, navigate }) {
   }
 }
 
-export async function deleteUser({ dispatch, id, navigate }) {
+export async function deleteUser({ dispatch, id }) {
   try {
     dispatch({ type: 'LOADING' });
     const response = await API({ method: 'DELETE', endpoint: `users/deleteUser/${id}` });
-
     dispatch({ type: 'DELETE_USER' });
-    logout({ dispatch });
-    navigate('/');
+    dispatch({ type: 'SHOW_MESSAGE', payload: response.message });
+    dispatch({ type: 'LOGOUT' });
   } catch (error) {
     dispatch({ type: 'ERROR', payload: error });
   }

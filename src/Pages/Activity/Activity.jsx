@@ -1,14 +1,12 @@
-import { useContext } from 'react';
 import './Activity.css';
-
-import { ActivitiesContext } from '../../Providers/Activities/ActivitiesProvider';
 import GallerySlider from '../../Components/GallerySlider/GallerySlider';
 import Button from '../../Components/Button/Button';
+import useActivitiesState from '../../Hooks/useActivitiesState';
+import CardReservation from '../../Components/CardReservation/CardReservation';
 
 const Activity = () => {
-  const { state } = useContext(ActivitiesContext);
+  const { state } = useActivitiesState();
   const { activity } = state;
-  console.log(activity);
 
   return (
     <main>
@@ -69,15 +67,7 @@ const Activity = () => {
               <li key={index}>- {item?.charAt(0).toUpperCase() + item?.slice(1).toLowerCase()}</li>
             ))}
           </div>
-          <div className="activity__reservations">
-            <h4>Reserva tu actividad</h4>
-            <p>Asegura tu lugar en esta expreiencia única</p>
-            <p className="activity__reservations--price">
-              {`${activity.price}€`}
-              <span>/persona</span>
-            </p>
-            <Button text="Reservar ahora" />
-          </div>
+          <CardReservation title="Reserva tu actividad" text="Asegura tu lugar en esta experiencia única" item={activity} />
         </div>
       )}
     </main>
