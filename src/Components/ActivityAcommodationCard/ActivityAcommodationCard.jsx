@@ -26,6 +26,7 @@ const ActivityAcommodationCard = ({ src, title, item, btnText }) => {
   return (
     <div className="activityAcommodationCard">
       {activityState.error && <Alert message={activityState.error} />}
+      {accommodationState.error && <Alert message={accommodationState.error}/>}
       <div className="activityAcommodationCard__heading">
         <img src={src} alt="icono" />
         <h3>{title}</h3>

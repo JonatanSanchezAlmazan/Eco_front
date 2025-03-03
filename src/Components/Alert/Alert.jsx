@@ -4,7 +4,7 @@ import './Alert.css';
 import { useNavigate } from 'react-router-dom';
 
 const Alert = ({ message }) => {
-  const [showAlert, setShowAlert] = useState();
+  const [showAlert, setShowAlert] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
