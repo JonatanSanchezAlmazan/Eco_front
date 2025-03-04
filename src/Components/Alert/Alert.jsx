@@ -17,6 +17,12 @@ const Alert = ({ message }) => {
       case 'Usuario eliminado correctamente':
         navigate('/');
         break;
+      case 'Alojamiento creado correctamente':
+        navigate('/owner');
+        break;
+      case 'Actividad creada correctamente':
+        navigate('/owner');
+        break;
 
       default:
         break;

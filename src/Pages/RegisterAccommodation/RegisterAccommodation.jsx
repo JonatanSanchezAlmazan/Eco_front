@@ -9,9 +9,10 @@ import Step3 from './Step3/Step3';
 import { createAccommodation } from '../../Reducers/Accommodations/accommodations.action';
 import useFormStep from '../../Hooks/useFormStep';
 import { stepFieldsAccommodations } from '../../utils/fieldsSteps';
+import Alert from '../../Components/Alert/Alert';
 
 const RegisterAccommodation = () => {
-  const { dispatch } = useContext(AccommodationsContext);
+  const { state, dispatch } = useContext(AccommodationsContext);
   const {
     register,
     handleSubmit,
@@ -28,6 +29,7 @@ const RegisterAccommodation = () => {
 
   return (
     <main>
+      {state.message && <Alert message={state.message}/>}
       <section className="register__accommodation">
         <h2>Registrar Nuevo Alojamiento</h2>
         <div className="form__container--accommodation">
