@@ -5,15 +5,18 @@ import { BrowserRouter } from 'react-router-dom';
 import { UsersProvider } from './Providers/Users/UsersProvider.jsx';
 import ActivitiesProvider from './Providers/Activities/ActivitiesProvider.jsx';
 import AccommodationsProvider from './Providers/Accommodations/AccommodationsProvider.jsx';
+import ReservationsProvider from './Providers/Reservations/Reservations.jsx';
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
     <UsersProvider>
-      <AccommodationsProvider>
-        <ActivitiesProvider>
-          <App />
-        </ActivitiesProvider>
-      </AccommodationsProvider>
+      <ReservationsProvider>
+          <AccommodationsProvider>
+            <ActivitiesProvider>
+              <App />
+            </ActivitiesProvider>
+          </AccommodationsProvider>
+      </ReservationsProvider>
     </UsersProvider>
   </BrowserRouter>
 );

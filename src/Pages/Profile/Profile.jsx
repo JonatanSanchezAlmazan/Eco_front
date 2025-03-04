@@ -9,6 +9,8 @@ import useUserState from '../../Hooks/useUserState';
 
 const Profile = () => {
   const { state, dispatch } = useUserState();
+  console.log(state);
+  
 
   useEffect(() => {
     async function user() {

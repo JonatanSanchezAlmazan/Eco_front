@@ -54,8 +54,6 @@ export async function registerUser({ dispatch, data, navigate }) {
 
 export async function getUser({ dispatch, id }) {
   try {
-    console.log(id);
-
     dispatch({ type: 'LOADING' });
     const data = await API({ endpoint: `users/${id}`, isJson: true });
 

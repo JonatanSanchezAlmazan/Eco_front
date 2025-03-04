@@ -1,15 +1,20 @@
 import './Activity.css';
 import GallerySlider from '../../Components/GallerySlider/GallerySlider';
-import Button from '../../Components/Button/Button';
 import useActivitiesState from '../../Hooks/useActivitiesState';
 import CardReservation from '../../Components/CardReservation/CardReservation';
+import { useContext } from 'react';
+import { ReservationsContext } from '../../Providers/Reservations/Reservations';
+import Alert from '../../Components/Alert/Alert';
 
 const Activity = () => {
   const { state } = useActivitiesState();
+  const {state:reservationState} = useContext(ReservationsContext);
+
   const { activity } = state;
 
   return (
     <main>
+      {reservationState.message && <Alert message={reservationState.message}/>} 
       {activity && (
         <div className="activity">
           <h3>{activity.name}</h3>
@@ -67,7 +72,7 @@ const Activity = () => {
               <li key={index}>- {item?.charAt(0).toUpperCase() + item?.slice(1).toLowerCase()}</li>
             ))}
           </div>
-          <CardReservation title="Reserva tu actividad" text="Asegura tu lugar en esta experiencia única" item={activity} />
+          <CardReservation title="Reserva tu actividad" text="Asegura tu lugar en esta experiencia única" item={activity}  />
         </div>
       )}
     </main>
