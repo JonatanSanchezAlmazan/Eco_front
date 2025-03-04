@@ -40,6 +40,7 @@ export async function createActiviy({ dispatch, data }) {
     } else {
       parsedStarTime = `${data.startTime} PM`;
     }
+
     const formData = new FormData();
     formData.append('name', data.name);
     formData.append('description', data.description);
@@ -74,10 +75,9 @@ export async function createActiviy({ dispatch, data }) {
   }
 }
 
-
-export async function updateActivity({dispatch, id, data}) {
+export async function updateActivity({ dispatch, id, data }) {
   try {
-    dispatch({ type: 'LOADING' });    
+    dispatch({ type: 'LOADING' });
     const formData = new FormData();
     if (data.name) formData.append('name', data.name);
     if (data.description) formData.append('description', data.description);
@@ -96,36 +96,28 @@ export async function updateActivity({dispatch, id, data}) {
       console.warn('No se han seleccionado imágenes');
     }
 
-    data.requirements?.split(',').forEach((item) =>
-      formData.append('requirements', item.trim())
-    );
+    data.requirements?.split(',').forEach((item) => formData.append('requirements', item.trim()));
 
-    data.includes?.split(',').forEach((item) =>
-      formData.append('includes', item.trim())
-    );
+    data.includes?.split(',').forEach((item) => formData.append('includes', item.trim()));
 
-    const response = await API({method: 'PUT', endpoint:`activities/updateActivity/${id}`, body:formData});
+    const response = await API({ method: 'PUT', endpoint: `activities/updateActivity/${id}`, body: formData });
     console.log(response);
-    
-    dispatch({type: 'UPDATE_ACTIVITY', payload: response.activity});
-    dispatch({type:'SHOW_MESSAGE', payload:response.message});
-    
 
+    dispatch({ type: 'UPDATE_ACTIVITY', payload: response.activity });
+    dispatch({ type: 'SHOW_MESSAGE', payload: response.message });
   } catch (error) {
     dispatch({ type: 'ERROR', payload: error });
   }
 }
 
-export async function deleteActivity({dispatch, id}) {
+export async function deleteActivity({ dispatch, id }) {
   try {
     dispatch({ type: 'LOADING' });
-    const response = await API({method:'DELETE', endpoint:`activities/deleteActivity/${id}`});
-    dispatch({type: 'DELETE_ACTIVITY', payload:response.activity})
-    dispatch({type:'SHOW_MESSAGE', payload:response.message});
+    const response = await API({ method: 'DELETE', endpoint: `activities/deleteActivity/${id}` });
+    dispatch({ type: 'DELETE_ACTIVITY', payload: response.activity });
+    dispatch({ type: 'SHOW_MESSAGE', payload: response.message });
     console.log(response);
-      
   } catch (error) {
     dispatch({ type: 'ERROR', payload: error });
   }
-  
 }

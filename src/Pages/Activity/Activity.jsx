@@ -8,13 +8,13 @@ import Alert from '../../Components/Alert/Alert';
 
 const Activity = () => {
   const { state } = useActivitiesState();
-  const {state:reservationState} = useContext(ReservationsContext);
+  const { state: reservationState } = useContext(ReservationsContext);
 
   const { activity } = state;
 
   return (
     <main>
-      {reservationState.message && <Alert message={reservationState.message}/>} 
+      {reservationState.message && <Alert message={reservationState.message} />}
       {activity && (
         <div className="activity">
           <h3>{activity.name}</h3>
@@ -42,7 +42,7 @@ const Activity = () => {
                 </p>
 
                 <p>
-                  Inicio: <span>{activity.startTime.split(':')[0] > 11 ? `${activity.startTime} PM` : `${activity.startTime} AM`}</span>
+                  Inicio: <span>{activity.startTime}</span>
                 </p>
               </div>
               <div>
@@ -72,7 +72,7 @@ const Activity = () => {
               <li key={index}>- {item?.charAt(0).toUpperCase() + item?.slice(1).toLowerCase()}</li>
             ))}
           </div>
-          <CardReservation title="Reserva tu actividad" text="Asegura tu lugar en esta experiencia única" item={activity}  />
+          <CardReservation title="Reserva tu actividad" text="Asegura tu lugar en esta experiencia única" item={activity} />
         </div>
       )}
     </main>

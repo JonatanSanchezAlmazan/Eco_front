@@ -9,9 +9,10 @@ import Step2 from './Step2/Step2';
 import Step3 from './Step3/Step3';
 import useFormStep from '../../Hooks/useFormStep';
 import { stepFieldsActivities } from '../../utils/fieldsSteps';
+import Alert from '../../Components/Alert/Alert';
 
 const RegisterActivity = () => {
-  const { dispatch } = useContext(ActivitiesContext);
+  const { state, dispatch } = useContext(ActivitiesContext);
   const {
     register,
     handleSubmit,
@@ -28,6 +29,7 @@ const RegisterActivity = () => {
 
   return (
     <main>
+      {state.message && <Alert message={state.message} />}
       <section className="register__activity">
         <h2>Registrar Nueva Actividad</h2>
         <div className="form__container">
