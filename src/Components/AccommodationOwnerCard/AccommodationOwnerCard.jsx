@@ -6,30 +6,29 @@ import useAccommodationState from '../../Hooks/useAccommodationsState';
 import Alert from '../Alert/Alert';
 
 const AccommodationOwnerCard = () => {
-    const {state, dispatch} = useAccommodationState();
-    const {accommodations} = state
-    const navigate = useNavigate();
+  const { state, dispatch } = useAccommodationState();
+  const { accommodations } = state;
+  const navigate = useNavigate();
 
-    function navigateRegisterAccommodation(params) {
-        navigate('/registerAccommodation')
-        
-    }
+  function navigateRegisterAccommodation() {
+    navigate('/registerAccommodation');
+  }
   return (
     <div className="accommodationOwnerCard">
-    {state.error && <Alert message={state.error} />}
-    <div className="accommodationOwnerCard__heading">
-      <img src='/icons/casa-ecologica.webp' alt="icono" />
-      <h3>Alojamientos</h3>
-    </div>
-    <p>{`Gestiona tus alojamientos sostenibles`}</p>
-    {accommodations.length <= 0 && <p>No tienes alojamientos disponibles</p>}
-    {accommodations.map((accommodation) => (
-        <EditableItemCard item={accommodation} navigate={navigate} type='Accommodation' dispatch={dispatch}/>
-    ))}
-    
-    <Button fnc={() => navigateRegisterAccommodation()} text='Crear Alojamiento' />
-  </div>
-  )
-}
+      {state.error && <Alert message={state.error} />}
+      <div className="accommodationOwnerCard__heading">
+        <img src="/icons/casa-ecologica.webp" alt="icono" />
+        <h3>Alojamientos</h3>
+      </div>
+      <p>{`Gestiona tus alojamientos sostenibles`}</p>
+      {accommodations.length <= 0 && <p>No tienes alojamientos disponibles</p>}
+      {accommodations.map((accommodation) => (
+        <EditableItemCard key={accommodation._id} item={accommodation} navigate={navigate} type="Accommodation" dispatch={dispatch} />
+      ))}
 
-export default AccommodationOwnerCard
+      <Button fnc={() => navigateRegisterAccommodation()} text="Crear Alojamiento" />
+    </div>
+  );
+};
+
+export default AccommodationOwnerCard;

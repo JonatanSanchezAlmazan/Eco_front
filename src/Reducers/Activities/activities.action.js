@@ -58,6 +58,8 @@ export async function createActiviy({ dispatch, data }) {
     formData.append('difficulty', data.difficulty);
     formData.append('startTime', parsedStarTime);
     formData.append('schedule', data.schedule);
+    formData.append('contactDetails[email]', data.email);
+    formData.append('contactDetails[phone]', data.phone);
 
     if (data?.images && data.images.length > 0) {
       data.images.forEach((file) => {

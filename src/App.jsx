@@ -13,10 +13,8 @@ import Profile from './Pages/Profile/Profile';
 import Activity from './Pages/Activity/Activity';
 import Accommodation from './Pages/Accommodation/Accommodation';
 import Loading from './Components/Loading/Loading';
-import Alert from './Components/Alert/Alert';
 import RegisterActivity from './Pages/RegisterActivity/RegisterActivity';
 import RegisterAccommodation from './Pages/RegisterAccommodation/RegisterAccommodation';
-
 import UpdateActivity from './Pages/UpdateActivity/UpdateActivity';
 import UpdateAccommodation from './Pages/UpdateAccommodation/UpdateAccommodation';
 import useLoadingState from './Hooks/useLoadingState';
@@ -27,6 +25,7 @@ const App = () => {
   return (
     <>
       {loading && <Loading />}
+
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />

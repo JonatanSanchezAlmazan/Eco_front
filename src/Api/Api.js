@@ -12,7 +12,6 @@ export async function API({ method = 'GET', isJson = false, body, endpoint }) {
 
     const response = await fetch(`${import.meta.env.VITE_BASE_URL}/${endpoint}`, options);
     const data = await response.json();
-
     if (!response.ok) {
       throw data.message;
     }

@@ -15,6 +15,7 @@ const Activity = () => {
   return (
     <main>
       {reservationState.message && <Alert message={reservationState.message} />}
+      {reservationState.error && <Alert message={reservationState.error} />}
       {activity && (
         <div className="activity">
           <h3>{activity.name}</h3>
@@ -31,6 +32,12 @@ const Activity = () => {
           <div className="activity__detail">
             <h4>Detalles de la actividad</h4>
             <div>
+              <p>
+                Email: <span>{accommodation.contactDetails.email}</span>
+              </p>
+              <p>
+                Teléfono: <span>{accommodation.contactDetails.phone}</span>
+              </p>
               <div className="activity__detail--hour">
                 <img src="/icons/reloj.webp" alt="icono reloj" />
                 <p>
@@ -72,7 +79,7 @@ const Activity = () => {
               <li key={index}>- {item?.charAt(0).toUpperCase() + item?.slice(1).toLowerCase()}</li>
             ))}
           </div>
-          <CardReservation title="Reserva tu actividad" text="Asegura tu lugar en esta experiencia única" item={activity} />
+          <CardReservation type="activity" title="Reserva tu actividad" text="Asegura tu lugar en esta experiencia única" item={activity} />
         </div>
       )}
     </main>

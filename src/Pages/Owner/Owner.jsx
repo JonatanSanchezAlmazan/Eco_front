@@ -1,4 +1,3 @@
-
 import './Owner.css';
 import useActivitiesState from '../../Hooks/useActivitiesState';
 import useAccommodationState from '../../Hooks/useAccommodationsState';
@@ -10,30 +9,30 @@ import ActivityOwnerCard from '../../Components/ActivityOwnerCard/ActivityOwnerC
 import AccommodationOwnerCard from '../../Components/AccommodationOwnerCard/AccommodationOwnerCard';
 
 const Owner = () => {
-  const { dispatch:activitiesDispatch } = useActivitiesState();
+  const { dispatch: activitiesDispatch } = useActivitiesState();
   const { dispatch: accommodationsDispatch } = useAccommodationState();
-  const {state} = useUserState();
-  const {user} = state
+  const { state } = useUserState();
+  const { user } = state;
 
   async function getActivities() {
-    await getActivitiesByAuthor({dispatch:activitiesDispatch ,id:user._id})
+    await getActivitiesByAuthor({ dispatch: activitiesDispatch, id: user._id });
   }
 
-  async function getAccommodations(params) {
-    await getAccommodationsByAuthor({dispatch: accommodationsDispatch, id:user._id})
+  async function getAccommodations() {
+    await getAccommodationsByAuthor({ dispatch: accommodationsDispatch, id: user._id });
   }
 
   useEffect(() => {
     getActivities();
     getAccommodations();
-  },[])
+  }, []);
 
   return (
     <main>
       <h2 className="owner__heading">Panel de Control</h2>
       <section className="owner__section">
         <ActivityOwnerCard />
-        <AccommodationOwnerCard/>
+        <AccommodationOwnerCard />
       </section>
     </main>
   );

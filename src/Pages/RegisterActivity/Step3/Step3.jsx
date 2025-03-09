@@ -32,6 +32,38 @@ const Step3 = ({ register, errors }) => {
         </select>
         {errors.difficulty && <p className="form__error">{errors.difficulty.message}</p>}
       </div>
+      <div className="field">
+        <label htmlFor="email">Email de contacto</label>
+        <input
+          type="text"
+          id="email"
+          name="email"
+          {...register('email', {
+            required: 'El email es requerido',
+            pattern: {
+              value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+              message: 'El email no tiene un formato válido'
+            }
+          })}
+        />
+        {errors.email && <p className="form__error">{errors.email.message}</p>}
+      </div>
+      <div className="field">
+        <label htmlFor="phone">Teléfono de contacto</label>
+        <input
+          type="text"
+          id="phone"
+          name="phone"
+          {...register('phone', {
+            required: 'El teléfono es requerido',
+            pattern: {
+              value: /^\d+$/,
+              message: 'El teléfoni no tiene un formato válido'
+            }
+          })}
+        />
+        {errors.phone && <p className="form__error">{errors.phone.message}</p>}
+      </div>
       <Button text="Registrar Actividad" />
     </div>
   );

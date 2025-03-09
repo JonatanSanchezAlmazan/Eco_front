@@ -5,8 +5,6 @@ import useActivitiesState from '../../Hooks/useActivitiesState';
 
 const Activities = () => {
   const { state, dispatch } = useActivitiesState();
-  console.log(state);
-  
 
   useEffect(() => {
     async function activities() {

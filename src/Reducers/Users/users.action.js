@@ -1,5 +1,15 @@
 import { API } from '../../Api/Api';
 
+export async function checkSesion({ dispatch }) {
+  try {
+    await API({ endpoint: 'check_auth' });
+    dispatch({ type: 'AUTH_CHECK' });
+  } catch (error) {
+    dispatch({ type: 'ERROR', payload: error });
+    localStorage.removeItem('user');
+  }
+}
+
 export async function login({ dispatch, body, navigate }) {
   try {
     dispatch({ type: 'LOADING' });
