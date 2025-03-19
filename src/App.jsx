@@ -18,6 +18,7 @@ import RegisterAccommodation from './Pages/RegisterAccommodation/RegisterAccommo
 import UpdateActivity from './Pages/UpdateActivity/UpdateActivity';
 import UpdateAccommodation from './Pages/UpdateAccommodation/UpdateAccommodation';
 import useLoadingState from './Hooks/useLoadingState';
+import OwnerReservations from './Pages/OwnerReservations/OwnerReservations';
 
 const App = () => {
   const { loading } = useLoadingState();
@@ -43,6 +44,7 @@ const App = () => {
         <Route path="/registerAccommodation" element={<RegisterAccommodation />} />
         <Route path="/updateActivity/:id" element={<UpdateActivity />} />
         <Route path="/updateAccommodation/:id" element={<UpdateAccommodation />} />
+        <Route path="/ownerReservations" element={<OwnerReservations />} />
       </Routes>
       <Footer />
     </>

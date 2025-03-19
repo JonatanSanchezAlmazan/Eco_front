@@ -1,20 +1,14 @@
 import { NavLink, useNavigate } from 'react-router-dom';
 import './Menu.css';
-import { useContext } from 'react';
-import { UsersContext } from '../../Providers/Users/UsersProvider';
 import { logout } from '../../Reducers/Users/users.action';
 
-const Menu = () => {
-  const { state, dispatch } = useContext(UsersContext);
-  const { isLogin, user } = state;
+const Menu = ({ isLogin, user }) => {
   const navigate = useNavigate();
-  //!Todo cerrar sesion
 
   return (
     <div className="menu">
       <nav>
         <ul>
-          <h2>Ecoturismo</h2>
           <li>
             {isLogin && (
               <div className="image__user">

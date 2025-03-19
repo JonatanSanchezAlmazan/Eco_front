@@ -1,0 +1,15 @@
+.ownerReservation {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.ownerReservation > div {
+  width: 100%;
+  display: flex;
+  gap: var(--eco-spacing-m);
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}

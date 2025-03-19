@@ -47,7 +47,7 @@ const Header = () => {
 
       <div onClick={() => setIsMenu(!isMenu)} className="header__menu">
         {isMenu ? <img src="/icons/cerrar.webp" alt="icon close menu" /> : <img src="/icons/menu.webp" alt="icon menu" />}
-        {isMenu && <Menu />}
+        {isMenu && <Menu isLogin={isLogin} user={user} />}
       </div>
     </header>
   );

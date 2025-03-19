@@ -1,0 +1,40 @@
+.react-calendar {
+  width: 300px;
+  border-radius: var(--eco-br-primary);
+  border: 2px solid var(--eco-bg-borders);
+}
+
+.react-calendar__tile {
+  padding: 10px;
+  border-radius: 5px;
+  transition: background 0.3s;
+  background: white;
+}
+
+.react-calendar__tile--active {
+  background: var(--eco-color005) !important; /* Azul cuando se selecciona */
+  color: white;
+  font-weight: bold;
+}
+
+.react-calendar__navigation button {
+  color: var(--eco-bg-secondary) !important;
+  font-size: 16px;
+}
+
+.react-calendar__month-view__weekdays {
+  color: var(--eco-bg-secondary);
+  font-weight: bold;
+}
+
+.highlight-range {
+  background-color: var(--eco-bg-secondary) !important;
+  color: white !important;
+  font-weight: bold;
+}
+
+.highlight-activity {
+  background-color: var(--eco-bg-buttons-hover) !important;
+  color: white !important;
+  font-weight: bold;
+}

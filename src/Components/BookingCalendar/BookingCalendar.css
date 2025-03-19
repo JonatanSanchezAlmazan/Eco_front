@@ -1,0 +1,58 @@
+.bookingCalendar {
+  background-color: white;
+  padding: var(--eco-spacing-s);
+  border-radius: var(--eco-br-primary);
+  box-shadow: 2px 2px 10px 0px rgba(143, 143, 148, 1);
+  border: 2px solid var(--eco-bg-borders);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--eco-spacing-m);
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+}
+
+.bookingCalendar > div {
+  display: flex;
+  flex-direction: column;
+  gap: var(--eco-spacing-s);
+}
+
+.bookingCalendar > div > p {
+  font-size: 14px;
+  color: var(--eco-color-letter-cards);
+  display: flex;
+  gap: 5px;
+}
+
+.bookingCalendar > div > h3 {
+  font-size: 24px;
+}
+
+.bookingCalendar__leyend {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: start;
+  justify-content: start;
+  width: 30%;
+}
+
+.bookingCalendar__leyend > div {
+  display: flex;
+  gap: 5px;
+}
+
+.lAccommodation {
+  width: 15px;
+  height: 15px;
+  background-color: var(--eco-bg-secondary);
+  border-radius: 2px;
+}
+
+.lActivity {
+  width: 15px;
+  height: 15px;
+  background-color: var(--eco-bg-buttons-hover);
+  border-radius: 2px;
+}

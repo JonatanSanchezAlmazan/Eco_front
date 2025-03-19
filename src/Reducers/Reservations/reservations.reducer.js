@@ -27,7 +27,8 @@ export function reservationsReducer(state, action) {
       return {
         ...state,
         message: action.payload,
-        error: false
+        error: false,
+        isLoading: false
       };
     case 'CLEAR_MESSAGE':
       return {
@@ -42,6 +43,14 @@ export function reservationsReducer(state, action) {
         message: false,
         error: false,
         reservation: action.payload
+      };
+    case 'GET_RESERVATIONS':
+      return {
+        ...state,
+        isLoading: false,
+        message: false,
+        error: false,
+        reservations: action.payload
       };
 
     default:

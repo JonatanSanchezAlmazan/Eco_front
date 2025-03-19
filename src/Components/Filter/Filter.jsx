@@ -5,20 +5,23 @@ const Filter = () => {
   return (
     <form className="filter">
       <div>
-        <label htmlFor="">Ubicación</label>
-        <input type="text" placeholder="¿A dónde quieres ir?" />
+        <label htmlFor="ubi">Ubicación</label>
+        <input id="ubi" type="text" placeholder="¿A dónde quieres ir?" />
       </div>
       <div>
-        <label htmlFor="">Personas</label>
-        <input type="number" placeholder="Número de personas" />
+        <label htmlFor="maxPeople">Personas</label>
+        <input id="maxPeople" type="number" placeholder="Número de personas" />
       </div>
       <div>
-        <label htmlFor="">Fecha</label>
-        <input type="date" />
+        <label htmlFor="date">Fecha</label>
+        <input id="date" type="date" />
       </div>
       <div>
-        <label htmlFor="">Tipo</label>
-        <select name="" id="">
+        <label htmlFor="type">Tipo</label>
+        <select name="type" id="type">
+          <option value="" disabled>
+            Selecciona un tipo
+          </option>
           <option value="">Alojamiento</option>
           <option value="">Actividad</option>
         </select>

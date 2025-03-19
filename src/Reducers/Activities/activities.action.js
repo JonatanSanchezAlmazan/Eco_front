@@ -123,3 +123,14 @@ export async function deleteActivity({ dispatch, id }) {
     dispatch({ type: 'ERROR', payload: error });
   }
 }
+
+export async function getRandomActivities({ dispatch }) {
+  try {
+    dispatch({ type: 'LOADING' });
+    const response = await API({ endpoint: `activities/random/activities` });
+
+    dispatch({ type: 'GET_ACTIVITIES', payload: response });
+  } catch (error) {
+    dispatch({ type: 'ERROR', payload: error });
+  }
+}

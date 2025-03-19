@@ -1,0 +1,19 @@
+.randomBookings {
+  display: flex;
+  flex-direction: column;
+  padding: var(--eco-spacing-xs);
+  gap: var(--eco-spacing-xs);
+  align-items: center;
+  overflow-x: auto;
+  margin: 0;
+  scroll-snap-align: center;
+}
+
+.randomBookings > div > .listingCards {
+  min-height: 100px;
+}
+
+.randomBookings > div > .listingCards > div {
+  display: flex;
+  flex-wrap: nowrap;
+}

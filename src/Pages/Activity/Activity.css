@@ -9,6 +9,14 @@
   margin: auto;
 }
 
+.activity__contact > p {
+  font-weight: bold;
+}
+
+.activity__contact > p > span {
+  font-weight: normal;
+}
+
 .activity > p,
 li {
   color: var(--eco-color-headings);

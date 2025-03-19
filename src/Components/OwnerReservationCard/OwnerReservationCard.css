@@ -1,0 +1,15 @@
+.owner__reservation--card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--eco-spacing-xs);
+  padding: var(--eco-spacing-xs);
+  width: 100%;
+  text-align: start;
+  border: 1px solid var(--eco-bg-borders);
+  border-radius: var(--eco-br-primary);
+}
+
+.owner__reservation--card > h5,
+p {
+  color: black;
+}

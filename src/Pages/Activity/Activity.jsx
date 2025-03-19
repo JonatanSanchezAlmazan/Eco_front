@@ -32,12 +32,6 @@ const Activity = () => {
           <div className="activity__detail">
             <h4>Detalles de la actividad</h4>
             <div>
-              <p>
-                Email: <span>{accommodation.contactDetails.email}</span>
-              </p>
-              <p>
-                Teléfono: <span>{accommodation.contactDetails.phone}</span>
-              </p>
               <div className="activity__detail--hour">
                 <img src="/icons/reloj.webp" alt="icono reloj" />
                 <p>
@@ -78,6 +72,14 @@ const Activity = () => {
             {activity.requirements.map((item, index) => (
               <li key={index}>- {item?.charAt(0).toUpperCase() + item?.slice(1).toLowerCase()}</li>
             ))}
+          </div>
+          <div className="activity__contact">
+            <p>
+              Email: <span>{activity.contactDetails.email}</span>
+            </p>
+            <p>
+              Teléfono: <span>{activity.contactDetails.phone}</span>
+            </p>
           </div>
           <CardReservation type="activity" title="Reserva tu actividad" text="Asegura tu lugar en esta experiencia única" item={activity} />
         </div>

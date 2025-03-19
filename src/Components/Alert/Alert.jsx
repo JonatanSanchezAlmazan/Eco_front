@@ -33,6 +33,8 @@ const Alert = ({ message }) => {
         logOut();
         navigate('/');
         break;
+      case 'Reserva eliminada correctamente, te hemos enviado un mensaje con la reserva cancleada':
+        navigate('/');
 
       default:
         break;

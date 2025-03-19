@@ -1,6 +1,15 @@
+import { useContext } from 'react';
 import './ReservationUserCard.css';
+import { ReservationsContext } from '../../Providers/Reservations/Reservations';
+import { removeReservation } from '../../Reducers/Reservations/reservations.action';
+import Alert from '../Alert/Alert';
 
 const ReservationUserCard = ({ isActivity, item }) => {
+  const { dispatch } = useContext(ReservationsContext);
+  async function deleteRservation({ id }) {
+    await removeReservation({ dispatch, id });
+  }
+
   return (
     <div className="reservationCard">
       <div>
@@ -11,7 +20,7 @@ const ReservationUserCard = ({ isActivity, item }) => {
           <p>{isActivity && `- Día: ${item.entryDate}`}</p>
         </div>
         <div className="reservationCard__button">
-          <button>
+          <button onClick={() => deleteRservation({ id: item._id })}>
             <img src="/icons/borrar.webp" alt="icono papelera" />
           </button>
         </div>
