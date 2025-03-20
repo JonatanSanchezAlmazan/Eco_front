@@ -7,8 +7,7 @@ export async function API({ method = 'GET', isJson = false, body, endpoint }) {
       method: method,
       headers,
       body: isJson ? JSON.stringify(body) : body,
-      credentials: 'include',
-      mode: 'cors'
+      credentials: 'include'
     };
 
     const response = await fetch(`${import.meta.env.VITE_BASE_URL}/${endpoint}`, options);
