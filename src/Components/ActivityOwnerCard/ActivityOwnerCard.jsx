@@ -17,14 +17,15 @@ const ActivityOwnerCard = () => {
   return (
     <div className="activityOwnerCard">
       {state.error && <Alert message={state.error} />}
+      {state.message && <Alert message={state.message} />}
       <div className="activityOwnerCard__heading">
         <img src="/icons/casa-ecologica.webp" alt="icono" />
         <h3>Actividades</h3>
       </div>
       <p>{`Gestiona tus actividades sostenibles`}</p>
       {activities.length <= 0 && <p>No tienes actividades disponibles</p>}
-      {activities.map((activity) => (
-        <EditableItemCard key={activity._id} item={activity} navigate={navigate} dispatch={dispatch} type="Activity" />
+      {activities.map((activity, index) => (
+        <EditableItemCard key={index} item={activity} navigate={navigate} dispatch={dispatch} type="Activity" />
       ))}
 
       <Button fnc={() => navigateRegisterActivity()} text="Crear Actividad" />

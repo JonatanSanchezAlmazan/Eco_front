@@ -78,8 +78,6 @@ export async function updateAccommodation({ dispatch, id, data }) {
     if (data.services) data.services.forEach((service) => formData.append('services', service));
     if (data.images?.length) {
       data.images.forEach((file) => formData.append('images', file));
-    } else {
-      console.warn('No se han seleccionado imágenes');
     }
     if (data.rules) data.rules.split(',').forEach((rule) => formData.append('rules', rule));
     if (data.paymentType) formData.append('paymentType', data.paymentType);
@@ -100,8 +98,8 @@ export async function deleteAccommodation({ dispatch, id }) {
   try {
     dispatch({ type: 'LOADING' });
     const response = await API({ method: 'DELETE', endpoint: `accommodations/deleteAccommodation/${id}` });
-    dispatch({ type: 'DELETE_ACCOMMODATION', pauload: response.accommodation });
-    dispatch({ type: 'SHOE_MESSAGE', payload: response.message });
+    dispatch({ type: 'DELETE_ACCOMMODATION', payload: response.accommodation });
+    dispatch({ type: 'SHOW_MESSAGE', payload: response.message });
   } catch (error) {
     dispatch({ type: 'ERROR', payload: error });
   }

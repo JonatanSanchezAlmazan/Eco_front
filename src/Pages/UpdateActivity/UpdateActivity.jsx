@@ -10,6 +10,7 @@ import Step2 from './Step2/Step2';
 import Step3 from './Step3/Step3';
 import ModalUpdate from '../../Components/ModalUpdate/ModalUpdate';
 import { updateActivity } from '../../Reducers/Activities/activities.action';
+import Alert from '../../Components/Alert/Alert';
 
 const UpdateActivity = () => {
   const location = useLocation();
@@ -23,14 +24,15 @@ const UpdateActivity = () => {
   const navigate = useNavigate();
 
   async function submit(data) {
-    await updateActivity({dispatch, id, data});
+    await updateActivity({ dispatch, id, data });
   }
 
   return (
     <div className="updateActivity">
+      {state.message && <Alert message={state.message} />}
       <ModalUpdate>
         <form onSubmit={handleSubmit(submit)}>
-          <img onClick={()=> navigate('/owner')} className='close' src="/icons/close.webp" alt="icon close" />
+          <img onClick={() => navigate('/owner')} className="close" src="/icons/close.webp" alt="icon close" />
           <h4>{`Editar Actividad ${activity.name}`}</h4>
           <div className="progress__bar">
             {[1, 2, 3].map((s) => (

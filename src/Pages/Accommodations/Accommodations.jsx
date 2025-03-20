@@ -16,7 +16,7 @@ const Accommodations = () => {
   return (
     <main>
       <section className="content">
-        <ListingCards cards={state.accommodations} title="Alojamientos Ecoturísticos" />
+        <ListingCards type="acommodations" cards={state.accommodations} title="Alojamientos Ecoturísticos" />
       </section>
     </main>
   );

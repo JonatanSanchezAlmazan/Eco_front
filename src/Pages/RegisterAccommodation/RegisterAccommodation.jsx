@@ -29,7 +29,8 @@ const RegisterAccommodation = () => {
 
   return (
     <main>
-      {state.message && <Alert message={state.message}/>}
+      {state.message && <Alert message={state.message} />}
+      {state.error && <Alert message={state.error} />}
       <section className="register__accommodation">
         <h2>Registrar Nuevo Alojamiento</h2>
         <div className="form__container--accommodation">

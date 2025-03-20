@@ -8,10 +8,10 @@ import { getAccommodation } from '../../Reducers/Accommodations/accommodations.a
 import { AccommodationsContext } from '../../Providers/Accommodations/AccommodationsProvider';
 import { useCardDetail } from '../../Hooks/useCardDetail';
 
-const Card = ({ src, title, btnText, id, description, ubi }) => {
+const Card = ({ src, title, btnText, id, description, ubi, type }) => {
   const { dispatch: activitiesDispatch } = useContext(ActivitiesContext);
   const { dispatch: accommodationsDispatch } = useContext(AccommodationsContext);
-  const { getCardDetail } = useCardDetail({ getActivity, getAccommodation, activitiesDispatch, accommodationsDispatch });
+  const { getCardDetail } = useCardDetail({ getActivity, getAccommodation, activitiesDispatch, accommodationsDispatch, type });
   return (
     <div className="card">
       <div>

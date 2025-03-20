@@ -30,6 +30,7 @@ const RegisterActivity = () => {
   return (
     <main>
       {state.message && <Alert message={state.message} />}
+      {state.error && <Alert message={state.error} />}
       <section className="register__activity">
         <h2>Registrar Nueva Actividad</h2>
         <div className="form__container">

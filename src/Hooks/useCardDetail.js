@@ -1,13 +1,10 @@
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-export function useCardDetail({ getActivity, getAccommodation, activitiesDispatch, accommodationsDispatch }) {
+export function useCardDetail({ getActivity, getAccommodation, activitiesDispatch, accommodationsDispatch, type }) {
   const navigate = useNavigate();
-  const location = useLocation();
-
-  const path = location.pathname === '/activities' ? 'activities' : 'accommodations';
 
   const getCardDetail = async (id) => {
-    if (path === 'activities') {
+    if (type === 'activities') {
       await getActivity({ dispatch: activitiesDispatch, id });
       navigate(`/activity/${id}`);
     } else {

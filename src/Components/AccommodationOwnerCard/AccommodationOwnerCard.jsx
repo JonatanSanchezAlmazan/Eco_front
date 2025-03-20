@@ -16,14 +16,15 @@ const AccommodationOwnerCard = () => {
   return (
     <div className="accommodationOwnerCard">
       {state.error && <Alert message={state.error} />}
+      {state.message && <Alert message={state.message} />}
       <div className="accommodationOwnerCard__heading">
         <img src="/icons/casa-ecologica.webp" alt="icono" />
         <h3>Alojamientos</h3>
       </div>
       <p>{`Gestiona tus alojamientos sostenibles`}</p>
       {accommodations.length <= 0 && <p>No tienes alojamientos disponibles</p>}
-      {accommodations.map((accommodation) => (
-        <EditableItemCard key={accommodation._id} item={accommodation} navigate={navigate} type="Accommodation" dispatch={dispatch} />
+      {accommodations.map((accommodation, index) => (
+        <EditableItemCard key={index} item={accommodation} navigate={navigate} type="Accommodation" dispatch={dispatch} />
       ))}
 
       <Button fnc={() => navigateRegisterAccommodation()} text="Crear Alojamiento" />

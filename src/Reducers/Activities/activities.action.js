@@ -73,6 +73,8 @@ export async function createActiviy({ dispatch, data }) {
     dispatch({ type: 'CREATE_ACTIVITY', payload: response.activity });
     dispatch({ type: 'SHOW_MESSAGE', payload: response.message });
   } catch (error) {
+    console.log(error);
+
     dispatch({ type: 'ERROR', payload: error });
   }
 }
@@ -94,8 +96,6 @@ export async function updateActivity({ dispatch, id, data }) {
 
     if (data.images?.length) {
       data.images.forEach((file) => formData.append('images', file));
-    } else {
-      console.warn('No se han seleccionado imágenes');
     }
 
     data.requirements?.split(',').forEach((item) => formData.append('requirements', item.trim()));
@@ -118,7 +118,6 @@ export async function deleteActivity({ dispatch, id }) {
     const response = await API({ method: 'DELETE', endpoint: `activities/deleteActivity/${id}` });
     dispatch({ type: 'DELETE_ACTIVITY', payload: response.activity });
     dispatch({ type: 'SHOW_MESSAGE', payload: response.message });
-    console.log(response);
   } catch (error) {
     dispatch({ type: 'ERROR', payload: error });
   }

@@ -7,8 +7,6 @@ import { getRandomActivities } from '../../Reducers/Activities/activities.action
 
 const Home = () => {
   const { state: activitiesState, dispatch } = useActivitiesState();
-  console.log(activitiesState);
-
   useEffect(() => {
     async function randomActivities() {
       await getRandomActivities({ dispatch });
@@ -20,7 +18,7 @@ const Home = () => {
   return (
     <main>
       <Hero />
-      <RandomBookings items={activitiesState.activities} title="Actividades Ecólogicas" btnText="Ver Actividad" />
+      <RandomBookings type="activities" items={activitiesState.activities} title="Actividades Ecólogicas" btnText="Ver Actividad" />
     </main>
   );
 };

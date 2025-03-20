@@ -26,7 +26,13 @@ const Alert = ({ message }) => {
       case 'Alojamiento creado correctamente':
         navigate('/owner');
         break;
+      case 'Alojamiento actualizado correctamente':
+        navigate('/owner');
+        break;
       case 'Actividad creada correctamente':
+        navigate('/owner');
+        break;
+      case 'Actividad actualizada correctamente':
         navigate('/owner');
         break;
       case 'Parece que tu sesión ha caducado. Vuelve a iniciar sesión para continuar.':
