@@ -13,16 +13,24 @@ const Footer = () => {
           <ul>
             <h5>Enlaces Rápidos</h5>
             <li>
-              <NavLink to="/ecoturismo">Ecoturismo</NavLink>
+              <NavLink to="/ecoturismo" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+                Ecoturismo
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/activities">Actividades</NavLink>
+              <NavLink to="/activities" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+                Actividades
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/accommodations">Alojamientos</NavLink>
+              <NavLink to="/accommodations" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+                Alojamientos
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/about">Sobre Nosotros</NavLink>
+              <NavLink to="/about" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+                Sobre Nosotros
+              </NavLink>
             </li>
           </ul>
         </nav>
