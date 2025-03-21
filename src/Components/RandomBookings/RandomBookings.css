@@ -25,6 +25,7 @@
   height: 400px;
   margin: 0;
   overflow-x: scroll;
+  scroll-snap-align: center;
   scroll-snap-type: x mandatory;
   scroll-snap-stop: always;
 }
@@ -34,11 +35,13 @@
 }
 
 .randomBookings > div > .listingCards > div::-webkit-scrollbar {
-  height: 5px;
+  height: 10px;
 }
 
 .randomBookings > div > .listingCards > div::-webkit-scrollbar-thumb {
   background: #1b4332;
   border-radius: 4px;
   cursor: pointer;
+  width: 50px;
+  opacity: 0.7;
 }
