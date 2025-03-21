@@ -16,7 +16,7 @@ const Activities = () => {
   return (
     <main>
       <section className="content">
-        <ListingCards type="activities" cards={state.activities} title="Actividades Ecológicas" />
+        <ListingCards btnText="Ver Actividad" type="activities" cards={state.activities} title="Actividades Ecológicas" />
       </section>
     </main>
   );

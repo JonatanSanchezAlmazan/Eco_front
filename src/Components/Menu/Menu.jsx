@@ -1,9 +1,12 @@
 import { NavLink, useNavigate } from 'react-router-dom';
 import './Menu.css';
 import { logout } from '../../Reducers/Users/users.action';
+import useUserState from '../../Hooks/useUserState';
 
-const Menu = ({ isLogin, user }) => {
+const Menu = () => {
   const navigate = useNavigate();
+  const { state, dispatch } = useUserState();
+  const { isLogin, user } = state;
 
   return (
     <div className="menu">
@@ -12,7 +15,7 @@ const Menu = ({ isLogin, user }) => {
           <li>
             {isLogin && (
               <div className="image__user">
-                <img onClick={() => navigate('/profile')} src={user.image} alt="image user" />
+                <img onClick={() => navigate('/profile')} src={user.image} alt="image user" width={44} height={44} />
               </div>
             )}
           </li>

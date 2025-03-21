@@ -1,4 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@font-face {
+  font-family: 'MiFuente';
+  src: url('./assets/fonts/Roboto-regular.ttf') format('truetype'), url('./assets/fonts/Roboto-Bold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 
 * {
   margin: 0;
@@ -48,7 +53,7 @@
 
 body {
   background-color: var(--eco-bg-primary);
-  font-family: 'Roboto', serif;
+  font-family: 'MiFuente', sans-serif;
 }
 
 a {

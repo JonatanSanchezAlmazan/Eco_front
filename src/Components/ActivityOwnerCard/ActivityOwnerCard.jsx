@@ -19,7 +19,7 @@ const ActivityOwnerCard = () => {
       {state.error && <Alert message={state.error} />}
       {state.message && <Alert message={state.message} />}
       <div className="activityOwnerCard__heading">
-        <img src="/icons/casa-ecologica.webp" alt="icono" />
+        <img src="/icons/activismo-ecologico.webp" alt="icono" />
         <h3>Actividades</h3>
       </div>
       <p>{`Gestiona tus actividades sostenibles`}</p>

@@ -4,7 +4,9 @@ import './About.css';
 const About = () => {
   return (
     <main>
-      <h2 className="h2" style={{marginTop:'150px'}}>Sobre Ecoturismo</h2>
+      <h2 className="h2" style={{ marginTop: '150px' }}>
+        Sobre Ecoturismo
+      </h2>
       <section className="content about">
         <article className="about__info">
           <p>En Ecoturismo, nos apasiona conectar a los viajeros con experiencias únicas y sostenibles en toda España. Nuestra misión es promover el turismo responsable y apoyar a las comunidades locales mientras ofrecemos alojamientos y actividades que respetan y celebran el medio ambiente.</p>
@@ -15,10 +17,10 @@ const About = () => {
         </article>
         <article className="about__images">
           <div>
-            <img src="/assets/eco1.webp" alt="imagen ecoturismo" loading="lazy" />
+            <img src="/assets/eco1.webp" alt="imagen ecoturismo" loading="lazy" width={100} height={100} />
           </div>
           <div>
-            <img src="/assets/eco2.webp" alt="imagen ecoturismo" loading="lazy" />
+            <img src="/assets/eco2.webp" alt="imagen ecoturismo" loading="lazy" width={100} height={100} />
           </div>
         </article>
       </section>

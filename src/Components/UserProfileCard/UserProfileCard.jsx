@@ -33,7 +33,9 @@ const UserProfileCard = ({ user, dispatch }) => {
       <p>Actualiza tus datos personales</p>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="profileCard__image">
-          <img src={user.image} alt="imagen usuario" />
+          <div className="profileCard__image--content">
+            <img src={user.image} alt="imagen usuario" width={100} height={100} />
+          </div>
           <div>
             <label htmlFor="name">Nombre</label>
             <input type="text" placeholder={user.name} {...register('name')} />

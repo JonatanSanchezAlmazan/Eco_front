@@ -20,7 +20,7 @@ const Accommodation = () => {
         <div className="accommodation">
           <h2>{accommodation.name}</h2>
           <div className="accommodation__ubi">
-            <img src="/icons/ubicacion.webp" alt="icono ubicacion" />
+            <img src="/icons/ubicacion.webp" alt="icono ubicacion" width={100} height={100} />
             <p>{accommodation.ubi}</p>
           </div>
           <GallerySlider images={accommodation.images} name={accommodation.name} />

@@ -20,7 +20,7 @@ const Activity = () => {
         <div className="activity">
           <h3>{activity.name}</h3>
           <div className="activity__ubi">
-            <img src="/icons/ubicacion.webp" alt="icono ubicacion" />
+            <img src="/icons/ubicacion.webp" alt="icono ubicacion" width={100} height={100} />
             <p>{activity.ubi}</p>
           </div>
           <GallerySlider images={activity.images} name={activity.name} />
@@ -33,27 +33,33 @@ const Activity = () => {
             <h4>Detalles de la actividad</h4>
             <div>
               <div className="activity__detail--hour">
-                <img src="/icons/reloj.webp" alt="icono reloj" />
-                <p>
-                  Duración: <span>{activity.duration}</span>
-                </p>
-
-                <p>
-                  Horario: <span>{activity.schedule}</span>
-                </p>
-
-                <p>
-                  Inicio: <span>{activity.startTime}</span>
-                </p>
+                <div>
+                  <img src="/icons/reloj.webp" alt="icono reloj" width={100} height={100} />
+                  <p>
+                    Duración: <span>{activity.duration}</span>
+                  </p>
+                </div>
+                <div>
+                  <img src="/icons/reloj.webp" alt="icono reloj" width={100} height={100} />
+                  <p>
+                    Horario: <span>{activity.schedule}</span>
+                  </p>
+                </div>
+                <div>
+                  <img src="/icons/reloj.webp" alt="icono reloj" width={100} height={100} />
+                  <p>
+                    Inicio: <span>{activity.startTime}</span>
+                  </p>
+                </div>
               </div>
               <div>
-                <img src="/icons/hoja.webp" alt="icono hoja" />
+                <img src="/icons/hoja.webp" alt="icono hoja" height={100} width={100} />
                 <p>
                   Dificultad: <span>{activity.difficulty}</span>
                 </p>
               </div>
               <div>
-                <img src="/icons/grupo.webp" alt="icono grupo" />
+                <img src="/icons/grupo.webp" alt="icono grupo" height={100} width={100} />
                 <p>
                   Tamaño del grupo: <span>{`Máximo ${activity.capacity <= 1 ? `${activity.capacity} persona` : `${activity.capacity} personas`}`}</span>
                 </p>

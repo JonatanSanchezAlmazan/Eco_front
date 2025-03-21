@@ -104,3 +104,13 @@ export async function deleteAccommodation({ dispatch, id }) {
     dispatch({ type: 'ERROR', payload: error });
   }
 }
+
+export async function getRandomAccommodations({ dispatch }) {
+  try {
+    dispatch({ type: 'LOADING' });
+    const response = await API({ endpoint: `accommodations/random/accommodations` });
+    dispatch({ type: 'GET_ACCOMMODATIONS', payload: response });
+  } catch (error) {
+    dispatch({ type: 'ERROR', payload: error });
+  }
+}

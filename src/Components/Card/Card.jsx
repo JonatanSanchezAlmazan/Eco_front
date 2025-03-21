@@ -15,7 +15,7 @@ const Card = ({ src, title, btnText, id, description, ubi, type }) => {
   return (
     <div className="card">
       <div>
-        <img src={src} alt={title} />
+        <img src={src} alt={title} width={100} height={100} loading="lazy" />
       </div>
       <h4>{title}</h4>
       <p className="pCard">{ubi}</p>

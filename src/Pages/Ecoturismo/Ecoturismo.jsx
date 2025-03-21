@@ -19,7 +19,7 @@ const Ecoturismo = () => {
             <br />
           </article>
           <div>
-            <img src="/assets/eco1.webp" alt="imagen ecoturismo" loading="lazy" />
+            <img src="/assets/eco1.webp" alt="imagen ecoturismo" loading="lazy" width={100} height={100} />
           </div>
         </section>
       </section>
