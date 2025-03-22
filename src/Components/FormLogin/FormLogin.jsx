@@ -49,7 +49,7 @@ const FormLogin = ({ dispatch, navigate }) => {
             }
           })}
         />
-        <img className="view" src={!showPassword ? '/icons/ojo.webp' : '/icons/ojo-abierto.webp'} alt="Mostrar contraseña" onClick={() => tooglePassword(!showPassword)} />
+        <img className="view" src={!showPassword ? '/icons/ojo.webp' : '/icons/ojo-abierto.webp'} alt="Mostrar contraseña" width={100} height={100} onClick={() => tooglePassword(!showPassword)} />
         {errors.password && <p className="form__error">{errors.password.message}</p>}
       </div>
       <Button text="Iniciar Sesión" />

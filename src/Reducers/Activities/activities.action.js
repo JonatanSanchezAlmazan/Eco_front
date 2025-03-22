@@ -133,3 +133,16 @@ export async function getRandomActivities({ dispatch }) {
     dispatch({ type: 'ERROR', payload: error });
   }
 }
+
+export async function filterActivities({ dispatch, data, navigate }) {
+  try {
+    console.log(data);
+
+    dispatch({ type: 'LOADING' });
+    const response = await API({ endpoint: `activities?idAuthor=&ubi=${data.ubi}&capacity=${data?.maxPeople} ` });
+    dispatch({ type: 'FILTER_ACTIVITIES', payload: response.activities });
+    navigate('/filterActivities');
+  } catch (error) {
+    dispatch({ type: 'ERROR', payload: error });
+  }
+}

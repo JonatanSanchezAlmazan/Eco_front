@@ -114,3 +114,14 @@ export async function getRandomAccommodations({ dispatch }) {
     dispatch({ type: 'ERROR', payload: error });
   }
 }
+
+export async function filterAccommodations({ dispatch, data, navigate }) {
+  try {
+    dispatch({ type: 'LOADING' });
+    const response = await API({ endpoint: `accommodations?idAuthor=&ubi=${data.ubi}&capacity=${data?.maxPeople} ` });
+    dispatch({ type: 'FILTER_ACCOMMODATIONS', payload: response.accommodations });
+    navigate('/filterAccommodations');
+  } catch (error) {
+    dispatch({ type: 'ERROR', payload: error });
+  }
+}

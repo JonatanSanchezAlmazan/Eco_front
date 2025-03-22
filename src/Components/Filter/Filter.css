@@ -19,7 +19,7 @@
 @media (min-width: 700px) {
   .filter {
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
     height: 160px;
   }
 
@@ -27,5 +27,9 @@
     position: absolute;
     bottom: 20px;
     width: 95%;
+  }
+
+  .filter > div {
+    width: 500px;
   }
 }

@@ -70,8 +70,10 @@ const FormRegister = ({ navigate, dispatch }) => {
       </div>
       <div className="field">
         <label htmlFor="rol">Rol</label>
-        <select id="rol" {...register('rol', { required: 'El rol es requerido' })}>
-          <option value="">Selecciona un rol</option>
+        <select id="rol" {...register('rol', { required: 'El rol es requerido' })} defaultValue="">
+          <option value="" disabled>
+            Selecciona un rol
+          </option>
           <option>Usuario</option>
           <option>Propietario</option>
         </select>
