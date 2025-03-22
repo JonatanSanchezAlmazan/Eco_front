@@ -6,12 +6,22 @@
   padding: 20px;
 }
 
+.randomBookings > div {
+  display: flex;
+  min-width: 100%;
+}
+
 .randomBookings > div > .listingCards {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 15px;
   padding: 25px 0;
-  min-height: 60svh;
+  min-height: 40svh;
+  width: 100%;
+  max-width: 1000px;
+  margin: auto;
 }
 
 .randomBookings > div > .listingCards > div {
@@ -21,20 +31,27 @@
   gap: 10px;
   padding: 0px var(--eco-spacing-s);
   transition: all 0.2s;
-  min-width: 100%;
+  min-width: fit-content;
+  width: 100%;
   height: 400px;
   margin: 0;
-  overflow-x: scroll;
+  overflow-x: auto;
   scroll-snap-align: center;
   scroll-snap-type: x mandatory;
   scroll-snap-stop: always;
+}
+
+.randomBookings > div > .listingCards > div {
+  scrollbar-width: thin;
+  scrollbar-color: #1b4332 #e0e0e0;
+  cursor: pointer;
 }
 
 .randomBookings > div > .listingCards > div > .card {
   margin-bottom: 15px;
 }
 
-.randomBookings > div > .listingCards > div::-webkit-scrollbar {
+/* .randomBookings > div > .listingCards > div::-webkit-scrollbar {
   height: 10px;
 }
 
@@ -44,4 +61,4 @@
   cursor: pointer;
   width: 50px;
   opacity: 0.7;
-}
+} */
