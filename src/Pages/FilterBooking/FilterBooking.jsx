@@ -9,7 +9,6 @@ const FilterBooking = () => {
   const path = location.pathname;
   const { state: actState } = useActivitiesState();
   const { state: accState } = useAccommodationState();
-  console.log(accState);
 
   return (
     <main className="content">

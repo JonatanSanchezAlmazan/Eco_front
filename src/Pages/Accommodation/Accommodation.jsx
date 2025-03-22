@@ -10,7 +10,6 @@ const Accommodation = () => {
   const { state } = useContext(AccommodationsContext);
   const { accommodation } = state;
   const { state: reservationState } = useContext(ReservationsContext);
-  console.log(reservationState);
 
   return (
     <main>
