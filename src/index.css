@@ -1,12 +1,12 @@
 @font-face {
   font-family: 'MiFuente';
-  src: url('/fonts/Roboto-regular.woff') format('truetype');
+  src: url('/fonts/Roboto-regular.woff') format('woof');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'MiFuente';
-  src: url('/fonts/Roboto-Bold.woof') format('truetype');
+  src: url('/fonts/Roboto-Bold.woof') format('woof');
   font-weight: bold;
   font-style: normal;
 }
