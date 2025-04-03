@@ -8,7 +8,7 @@ import { getAccommodation } from '../../Reducers/Accommodations/accommodations.a
 import { AccommodationsContext } from '../../Providers/Accommodations/AccommodationsProvider';
 import { useCardDetail } from '../../Hooks/useCardDetail';
 
-const Card = ({ src, title, btnText, id, description, ubi, type }) => {
+const Card = ({ src, title, btnText, id, description, ubi, type, name }) => {
   const { dispatch: activitiesDispatch } = useContext(ActivitiesContext);
   const { dispatch: accommodationsDispatch } = useContext(AccommodationsContext);
   const { getCardDetail } = useCardDetail({ getActivity, getAccommodation, activitiesDispatch, accommodationsDispatch, type });
@@ -21,7 +21,7 @@ const Card = ({ src, title, btnText, id, description, ubi, type }) => {
       <p className="pCard">{ubi}</p>
       <p className="pCard">{description}</p>
 
-      <Button fnc={() => getCardDetail(id)} text={btnText} />
+      <Button fnc={() => getCardDetail({ id, name: name })} text={btnText} />
     </div>
   );
 };

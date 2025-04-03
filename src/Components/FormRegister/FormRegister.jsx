@@ -24,7 +24,7 @@ const FormRegister = ({ navigate, dispatch }) => {
     <form onSubmit={handleSubmit(onSubmit)} className="form">
       <div className="field">
         <label htmlFor="name">Nombre</label>
-        <input type="text" id="name" name="name" {...register('name', { required: 'El nombre es requerido' })} />
+        <input type="text" id="name" name="name" autoComplete="name" {...register('name', { required: 'El nombre es requerido' })} />
         {errors.name && <p className="form__error">{errors.name.message}</p>}
       </div>
       <div className="field">
@@ -33,6 +33,7 @@ const FormRegister = ({ navigate, dispatch }) => {
           type="text"
           id="email"
           name="email"
+          autoComplete="email"
           {...register('email', {
             required: 'El email es requerido',
             pattern: {
@@ -49,6 +50,7 @@ const FormRegister = ({ navigate, dispatch }) => {
           type={!showPassword ? 'password' : 'text'}
           id="password"
           name="password"
+          autoComplete="current-password"
           {...register('password', {
             required: 'La contraseña es requerida',
             minLength: { value: 8, message: 'La contraseña debe tener al menos 8 caracteres' },

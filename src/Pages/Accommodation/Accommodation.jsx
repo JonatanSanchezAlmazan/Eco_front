@@ -1,15 +1,23 @@
-import { useContext } from 'react';
 import './Accommodation.css';
-import { AccommodationsContext } from '../../Providers/Accommodations/AccommodationsProvider';
 import GallerySlider from '../../Components/GallerySlider/GallerySlider';
 import CardReservation from '../../Components/CardReservation/CardReservation';
-import { ReservationsContext } from '../../Providers/Reservations/Reservations';
 import Alert from '../../Components/Alert/Alert';
+import useReservationState from '../../Hooks/useReservationsState';
+import useAccommodationState from '../../Hooks/useAccommodationsState';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Accommodation = () => {
-  const { state } = useContext(AccommodationsContext);
+  const navigate = useNavigate();
+  const { state } = useAccommodationState();
   const { accommodation } = state;
-  const { state: reservationState } = useContext(ReservationsContext);
+  const { state: reservationState } = useReservationState();
+
+  useEffect(() => {
+    if (!accommodation) {
+      navigate('/accommodations');
+    }
+  }, [accommodation, navigate]);
 
   return (
     <main>
@@ -27,19 +35,23 @@ const Accommodation = () => {
             <h3>Descripción</h3>
             <p>{accommodation.description}</p>
           </div>
-          <div className="accommodation_rules">
+          <div className="accommodation__rules">
             <h3>Normas</h3>
             {accommodation.rules.map((item, index) => (
-              <li key={index}>- {item?.charAt(0).toUpperCase() + item?.slice(1).toLowerCase()}</li>
+              <li key={index}>
+                <p>- {item?.charAt(0).toUpperCase() + item?.slice(1).toLowerCase()}</p>
+              </li>
             ))}
           </div>
-          <div className="accommodation_services">
+          <div className="accommodation__services">
             <h3>Servicios</h3>
             {accommodation.services.map((item, index) => (
-              <li key={index}>- {item?.charAt(0).toUpperCase() + item?.slice(1).toLowerCase()}</li>
+              <li key={index}>
+                <p>- {item?.charAt(0).toUpperCase() + item?.slice(1).toLowerCase()}</p>
+              </li>
             ))}
           </div>
-          <div className="accommodations__details">
+          <div className="accommodation__details">
             <h3>Detalles Adicionales</h3>
             <p>
               Tipo de alojamiento: <span>{accommodation.type}</span>

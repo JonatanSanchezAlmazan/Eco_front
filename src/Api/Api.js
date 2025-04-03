@@ -10,6 +10,8 @@ export async function API({ method = 'GET', isJson = false, body, endpoint }) {
       credentials: 'include'
     };
 
+    await new Promise((resolve) => setTimeout(resolve, 5000));
+
     const response = await fetch(`${import.meta.env.VITE_BASE_URL}/${endpoint}`, options);
     const data = await response.json();
 

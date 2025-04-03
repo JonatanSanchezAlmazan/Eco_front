@@ -3,7 +3,7 @@ import './Loading.css';
 const Loading = () => {
   return (
     <div className="loading__container">
-      <img src="/icons/hoja.webp" alt="icono hoja" />
+      <img src="/icons/loading.gif" alt="icono hoja" />
     </div>
   );
 };

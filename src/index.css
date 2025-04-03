@@ -1,12 +1,12 @@
 @font-face {
   font-family: 'MiFuente';
-  src: url('/fonts/Roboto-regular.woff') format('woof');
+  src: url('/fonts/Roboto-Regular.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'MiFuente';
-  src: url('/fonts/Roboto-Bold.woof') format('woof');
+  src: url('/fonts/Roboto-Bold.woff') format('woff');
   font-weight: bold;
   font-style: normal;
 }
@@ -17,6 +17,7 @@
   box-sizing: border-box;
   text-decoration: none;
   list-style: none;
+  font-family: 'MiFuente', sans-serif;
 }
 
 :root {
@@ -59,7 +60,6 @@
 
 body {
   background-color: var(--eco-bg-primary);
-  font-family: 'MiFuente', sans-serif;
 }
 
 a {
@@ -73,7 +73,6 @@ textarea {
   padding: var(--eco-spacing-xs);
   border-radius: var(--eco-br-primary);
   border: 2px solid var(--eco-bg-borders);
-  font-family: 'Roboto', serif;
   font-size: 12px;
 }
 
@@ -116,7 +115,6 @@ select:focus {
 p,
 li {
   font-size: 12px;
-  color: var(--eco-color-letter-pages);
 }
 
 main {

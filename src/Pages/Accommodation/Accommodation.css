@@ -23,8 +23,11 @@
   font-weight: bold;
 }
 
-.accommodations__details > p > span {
+.accommodation__details > p > span {
   font-weight: normal;
+}
+.accommodation__details > p {
+  font-weight: bold;
 }
 
 .accommodation h3 {

@@ -27,7 +27,7 @@
   cursor: pointer;
 }
 
-.explore__section:hover {
+.explore__section--link > .explore__section:hover {
   background-color: #cfcfcf9e;
 }
 

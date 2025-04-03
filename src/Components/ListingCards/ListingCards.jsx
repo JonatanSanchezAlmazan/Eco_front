@@ -9,7 +9,7 @@ const ListingCards = ({ title, cards, type, btnText }) => {
       <div>
         {cards.length === 0 && <h3>{title === 'Alojamientos Ecoturísticos' ? 'No se han encontrado alojamientos' : 'No se han encontrado actividades'}</h3>}
         {cards.map((card) => (
-          <Card key={card._id} src={card.images[0]} title={card.name} btnText={btnText} id={card._id} description={card.description} ubi={card.ubi} type={type} />
+          <Card key={card._id} src={card.images[0]} title={card.name} btnText={btnText} id={card._id} description={card.description} ubi={card.ubi} type={type} name={card.name} />
         ))}
       </div>
     </section>

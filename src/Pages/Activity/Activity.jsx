@@ -2,15 +2,22 @@ import './Activity.css';
 import GallerySlider from '../../Components/GallerySlider/GallerySlider';
 import useActivitiesState from '../../Hooks/useActivitiesState';
 import CardReservation from '../../Components/CardReservation/CardReservation';
-import { useContext } from 'react';
-import { ReservationsContext } from '../../Providers/Reservations/Reservations';
 import Alert from '../../Components/Alert/Alert';
+import useReservationState from '../../Hooks/useReservationsState';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Activity = () => {
+  const navigate = useNavigate();
   const { state } = useActivitiesState();
-  const { state: reservationState } = useContext(ReservationsContext);
-
+  const { state: reservationState } = useReservationState();
   const { activity } = state;
+
+  useEffect(() => {
+    if (!activity) {
+      navigate('/activities');
+    }
+  }, [activity, navigate]);
 
   return (
     <main>
@@ -70,13 +77,17 @@ const Activity = () => {
           <div className="activity__include">
             <h4>Qué incluye</h4>
             {activity.includes.map((item, index) => (
-              <li key={index}>- {item?.charAt(0).toUpperCase() + item?.slice(1).toLowerCase()}</li>
+              <li key={index}>
+                <p>- {item?.charAt(0).toUpperCase() + item?.slice(1).toLowerCase()}</p>
+              </li>
             ))}
           </div>
           <div className="activity__requirements">
             <h4>Requisitos</h4>
             {activity.requirements.map((item, index) => (
-              <li key={index}>- {item?.charAt(0).toUpperCase() + item?.slice(1).toLowerCase()}</li>
+              <li key={index}>
+                <p>- {item?.charAt(0).toUpperCase() + item?.slice(1).toLowerCase()}</p>
+              </li>
             ))}
           </div>
           <div className="activity__contact">

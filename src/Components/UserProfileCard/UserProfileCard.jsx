@@ -36,7 +36,7 @@ const UserProfileCard = ({ user, dispatch }) => {
           <div className="profileCard__image--content">
             <img src={user.image} alt="imagen usuario" width={100} height={100} />
           </div>
-          <div>
+          <div className="field">
             <label htmlFor="name">Nombre</label>
             <input type="text" placeholder={user.name} {...register('name')} />
           </div>
@@ -48,7 +48,7 @@ const UserProfileCard = ({ user, dispatch }) => {
             {preview ? <img src={preview} alt="Vista previa" /> : <p className="field">Sube tu imagen</p>}
           </label>
         </div>
-        <div>
+        <div className="field">
           <label htmlFor="email">Email</label>
           <input
             type="text"

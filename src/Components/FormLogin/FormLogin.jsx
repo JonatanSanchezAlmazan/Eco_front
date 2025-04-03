@@ -24,6 +24,7 @@ const FormLogin = ({ dispatch, navigate }) => {
           type="text"
           id="email"
           name="email"
+          autoComplete="email"
           {...register('email', {
             required: 'El email es requerido',
             pattern: {
@@ -40,6 +41,7 @@ const FormLogin = ({ dispatch, navigate }) => {
           type={!showPassword ? 'password' : 'text'}
           id="password"
           name="password"
+          autoComplete="current-password"
           {...register('password', {
             required: 'La contraseña es requerida',
             minLength: { value: 8, message: 'La contraseña debe tener al menos 8 caracteres' },

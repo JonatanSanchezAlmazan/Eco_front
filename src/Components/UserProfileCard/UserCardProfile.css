@@ -19,6 +19,7 @@
   flex-direction: column;
   gap: var(--eco-spacing-s);
 }
+
 .profileCard input {
   margin-top: 3px;
 }

@@ -1,19 +1,19 @@
-.editable__item{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: var(--eco-spacing-xs);
-    border-radius: var(--eco-br-primary);
-    border: 2px solid var(--eco-bg-borders);
-    gap: var(--eco-spacing-xs);
+.editable__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--eco-spacing-xs);
+  border-radius: var(--eco-br-primary);
+  border: 2px solid var(--eco-bg-borders);
+  gap: var(--eco-spacing-xs);
 }
 
-.editable__item > div{
+.editable__item > div {
   display: flex;
   gap: var(--eco-spacing-s);
 }
 
-.editable__item > div >img{
+.editable__item > div > img {
   width: 20px;
   height: 20px;
   cursor: pointer;
