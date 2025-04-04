@@ -10,7 +10,6 @@ describe('FormRegister', () => {
   it('renderiza correctamente el formulario', () => {
     render(<FormRegister navigate={mockNavigate} dispatch={mockDispatch} />);
 
-    // Verifica que los campos de entrada y etiquetas están presentes
     expect(screen.getByLabelText(/nombre/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/email/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/contraseña/i)).toBeInTheDocument();
@@ -22,11 +21,9 @@ describe('FormRegister', () => {
   it('muestra errores cuando los campos obligatorios están vacíos', async () => {
     render(<FormRegister navigate={mockNavigate} dispatch={mockDispatch} />);
 
-    // Simula enviar el formulario sin completar los campos
     const submitButton = screen.getByRole('button', { name: /registrarse/i });
     userEvent.click(submitButton);
 
-    // Espera que los mensajes de error estén presentes
     expect(await screen.findByText(/el nombre es requerido/i)).toBeInTheDocument();
     expect(await screen.findByText(/el email es requerido/i)).toBeInTheDocument();
     expect(await screen.findByText(/la contraseña es requerida/i)).toBeInTheDocument();
@@ -42,7 +39,6 @@ describe('FormRegister', () => {
     const submitButton = screen.getByRole('button', { name: /registrarse/i });
     userEvent.click(submitButton);
 
-    // Verifica que el mensaje de error para el email esté visible
     expect(await screen.findByText(/el email no tiene un formato válido/i)).toBeInTheDocument();
   });
 
@@ -55,20 +51,35 @@ describe('FormRegister', () => {
     const submitButton = screen.getByRole('button', { name: /registrarse/i });
     userEvent.click(submitButton);
 
-    // Verifica que el mensaje de error de contraseña aparezca
     expect(await screen.findByText(/la contraseña debe tener al menos 8 caracteres/i)).toBeInTheDocument();
   });
-
-  it('envía el formulario con datos válidos', async () => {
+  it('muestra un error si no se selecciona un rol', async () => {
     render(<FormRegister navigate={mockNavigate} dispatch={mockDispatch} />);
 
-    // Completa los campos del formulario con datos válidos
     const nameInput = screen.getByLabelText(/nombre/i);
     const emailInput = screen.getByLabelText(/email/i);
     const passwordInput = screen.getByLabelText(/contraseña/i);
     const rolSelect = screen.getByLabelText(/rol/i);
 
-    // Escribir datos válidos en el formulario
+    fireEvent.change(nameInput, { target: { value: 'Juan Pérez' } });
+    fireEvent.change(emailInput, { target: { value: 'juan@example.com' } });
+    fireEvent.change(passwordInput, { target: { value: 'Contraseña123!' } });
+    fireEvent.change(rolSelect, { target: { value: '' } });
+
+    const submitButton = screen.getByRole('button', { name: /registrarse/i });
+    fireEvent.click(submitButton);
+
+    expect(await screen.findByText(/el rol es requerido/i)).toBeInTheDocument();
+  });
+
+  it('envía el formulario con datos válidos', async () => {
+    render(<FormRegister navigate={mockNavigate} dispatch={mockDispatch} />);
+
+    const nameInput = screen.getByLabelText(/nombre/i);
+    const emailInput = screen.getByLabelText(/email/i);
+    const passwordInput = screen.getByLabelText(/contraseña/i);
+    const rolSelect = screen.getByLabelText(/rol/i);
+
     await userEvent.type(nameInput, 'Jonatan');
     await userEvent.type(emailInput, 'jonatansan1@hotmail.com');
     await userEvent.type(passwordInput, '99Jonatan99!');
@@ -77,7 +88,6 @@ describe('FormRegister', () => {
     const submitButton = screen.getByRole('button', { name: /registrarse/i });
     await userEvent.click(submitButton);
 
-    // Asegúrate de que el mock `dispatch` fue llamado
     await waitFor(() => expect(mockDispatch).toHaveBeenCalledTimes(1));
   });
 });
