@@ -1,11 +1,12 @@
 import './Accommodation.css';
 import GallerySlider from '../../Components/GallerySlider/GallerySlider';
 import CardReservation from '../../Components/CardReservation/CardReservation';
-import Alert from '../../Components/Alert/Alert';
+
 import useReservationState from '../../Hooks/useReservationsState';
 import useAccommodationState from '../../Hooks/useAccommodationsState';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Alert from '../../Components/Alert/Alert';
 
 const Accommodation = () => {
   const navigate = useNavigate();

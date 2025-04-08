@@ -16,6 +16,8 @@ const FormRegister = ({ navigate, dispatch }) => {
   } = useForm();
 
   async function onSubmit(data) {
+    console.log(data);
+
     data.image = file;
     await registerUser({ dispatch, data, navigate });
   }
@@ -76,8 +78,8 @@ const FormRegister = ({ navigate, dispatch }) => {
           <option value="" disabled>
             Selecciona un rol
           </option>
-          <option>Usuario</option>
-          <option>Propietario</option>
+          <option value="user">Usuario</option>
+          <option value="owner">Propietario</option>
         </select>
         {errors.rol && <p className="form__error">{errors.rol.message}</p>}
       </div>

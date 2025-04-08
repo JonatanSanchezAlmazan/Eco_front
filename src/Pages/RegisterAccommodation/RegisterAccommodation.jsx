@@ -24,6 +24,9 @@ const RegisterAccommodation = () => {
   const { step, goToStep } = useFormStep(trigger, stepFieldsAccommodations);
 
   async function submit(data) {
+    if (data.price <= 0) {
+      <Alert message="El precio no puede ser menor a 0€" />;
+    }
     await createAccommodation({ dispatch, data });
   }
 

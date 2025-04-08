@@ -30,8 +30,8 @@ describe('FormLogin', () => {
     const emailInput = screen.getByLabelText(/email/i);
     const passwordInput = screen.getByLabelText(/contraseña/i);
 
-    await userEvent.type(emailInput, 'jonatansan1@hotmail.com');
-    await userEvent.type(passwordInput, '99Jonatan99!');
+    await userEvent.type(emailInput, 'prueba1@hotmail.com');
+    await userEvent.type(passwordInput, '99Prueba99!');
 
     const submitButton = screen.getByRole('button', { name: /Iniciar Sesión/i });
     await userEvent.click(submitButton);

@@ -48,7 +48,7 @@ describe('FormRegister', () => {
     const passwordInput = screen.getByLabelText(/contraseña/i);
     fireEvent.change(passwordInput, { target: { value: '123' } });
 
-    const submitButton = screen.getByRole('button', { name: /registrarse/i });
+    const submitButton = screen.getByRole('button', { name: /Registrarse/i });
     userEvent.click(submitButton);
 
     expect(await screen.findByText(/la contraseña debe tener al menos 8 caracteres/i)).toBeInTheDocument();
@@ -61,10 +61,10 @@ describe('FormRegister', () => {
     const passwordInput = screen.getByLabelText(/contraseña/i);
     const rolSelect = screen.getByLabelText(/rol/i);
 
-    fireEvent.change(nameInput, { target: { value: 'Juan Pérez' } });
+    fireEvent.change(nameInput, { target: { value: 'Juan Perez' } });
     fireEvent.change(emailInput, { target: { value: 'juan@example.com' } });
     fireEvent.change(passwordInput, { target: { value: 'Contraseña123!' } });
-    fireEvent.change(rolSelect, { target: { value: '' } });
+    fireEvent.change(rolSelect, { target: { value: 'Usuario' } });
 
     const submitButton = screen.getByRole('button', { name: /registrarse/i });
     fireEvent.click(submitButton);
@@ -83,7 +83,7 @@ describe('FormRegister', () => {
     await userEvent.type(nameInput, 'Jonatan');
     await userEvent.type(emailInput, 'jonatansan1@hotmail.com');
     await userEvent.type(passwordInput, '99Jonatan99!');
-    await userEvent.selectOptions(rolSelect, 'Usuario');
+    await userEvent.selectOptions(rolSelect, 'user');
 
     const submitButton = screen.getByRole('button', { name: /registrarse/i });
     await userEvent.click(submitButton);
